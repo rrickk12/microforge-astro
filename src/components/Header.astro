@@ -1,0 +1,94 @@
+---
+import "../styles/global.css";
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
+
+<nav class="smol-flexbox-grid">
+  <a href="/">
+    <img class="logo" src="src/images/logo-horizontal.webp" alt="" />
+  </a>
+  <div class="nav-items">
+    <a href="/sobre">sobre</a>
+    <a href="/produtos">produtos</a>
+    <a href="/pd">p&d</a>
+    <a href="/contato">contato</a>
+  </div>
+
+  <a href="/sobre"><i class="fa-solid fa-cart-shopping cart"></i></a>
+  <div class="nav-socials">
+    <a href="/sobre"><i class="fa-brands fa-facebook"></i></a>
+    <a href="/sobre"><i class="fa-brands fa-instagram"></i></a>
+    <a href="/sobre"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="/sobre"><i class="fa-solid fa-envelope"></i></a>
+    <a href="/sobre"><i class="fa-brands fa-whatsapp"></i></a>
+  </div>
+</nav>
+
+<style>
+  nav {
+    position: sticky;
+    padding: 30px;
+    align-items: center;
+  }
+
+  .nav-items {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .nav-items a {
+    color: var(--text-color);
+    font-size: 20px;
+  }
+
+  .nav-items a:hover {
+    transition: 0.3s;
+    color: var(--dark-green);
+  }
+
+  .nav-items a:focus {
+    color: var(--dark-green);
+  }
+
+  .cart {
+    font-size: 20px;
+    justify-content: center;
+    color: var(--medium-green);
+  }
+
+  .nav-socials {
+    display: flex;
+    gap: 10px;
+  }
+
+  .nav-socials i {
+    color: #ffff;
+    font-size: 20px;
+    background-color: var(--medium-green);
+    border-radius: 50%;
+    padding: 12px;
+  }
+
+  .nav-socials i:hover {
+    transition: all 0.3s;
+    opacity: 80%;
+  }
+
+  .logo {
+    width: auto;
+    height: 80px;
+  }
+
+  .logo:hover {
+    transition: all 0.3s;
+    opacity: 80%;
+  }
+</style>
