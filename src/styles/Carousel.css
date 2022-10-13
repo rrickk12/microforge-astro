@@ -1,0 +1,17 @@
+.mySwiper {
+  height: 70vh;
+  cursor: grab;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #fff;
+}
