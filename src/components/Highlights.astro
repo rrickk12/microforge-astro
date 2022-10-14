@@ -1,5 +1,60 @@
-<div class="">
-  <div><img src="/src/images/amostra.webp" alt="" /><p>aaa</p></div>
+<div class="wrapper">
+  <!-- First -->
+  <div class="highlight first">
+    <img src="/src/images/amostra.webp" alt="" />
+    <p><span>+300 mil</span><br />exames realizados no Brasil inteiro</p>
+  </div>
+  <!-- Second -->
+  <div class="highlight first">
+    <img src="/src/images/experiencia.webp" alt="" />
+    <p>
+      <span>+14 anos</span><br />de experiência com o mercado de biologia
+      molecular
+    </p>
+  </div>
+  <!-- Third -->
+  <div class="highlight first">
+    <img src="/src/images/qualificacao.webp" alt="" />
+    <p><span>alta qualificação</span><br />da nossa equipe técnica</p>
+  </div>
 </div>
 
-<style></style>
+<style>
+  .highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  img {
+    height: 7rem;
+  }
+
+  span {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--orange);
+  }
+
+  p {
+    text-align: center;
+  }
+  @media only screen and (min-width: 768px) {
+    .highlight {
+      flex-direction: row;
+    }
+    .highlight:first-child {
+      margin-left: -30%;
+    }
+
+    .highlight:nth-child(3) {
+      margin-left: 30%;
+    }
+
+    p {
+      text-align: left;
+    }
+  }
+</style>

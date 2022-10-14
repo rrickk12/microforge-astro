@@ -30,7 +30,7 @@
         </p>
         <button style="background-color: var(--orange)">saiba mais</button>
       </div>
-      <img style="width:80%" src="src/images/sabia.webp" alt="" />
+      <img style="width:60%" src="src/images/sabia.webp" alt="" />
     </div>
   </SwiperSlide>
   <SwiperSlide style="background-image: url('src/images/slide3@2x.webp')">
@@ -44,7 +44,7 @@
         </p>
         <button style="background-color: var(--brown)">saiba mais</button>
       </div>
-      <img style="width:100%" src="src/images/maracaja.webp" alt="" />
+      <img style="width:80%" src="src/images/maracaja.webp" alt="" />
     </div>
   </SwiperSlide>
   <SwiperSlide style="background-image: url('src/images/slide4@2x.webp')">
@@ -62,7 +62,7 @@
         <button style="background-color: var(--medium-green)">saiba mais</button
         >
       </div>
-      <img style="width:100%" src="src/images/plasticos.webp" alt="" />
+      <img style="width:80%" src="src/images/plasticos.webp" alt="" />
     </div>
   </SwiperSlide>
   <SwiperSlide style="background-image: url('src/images/slide5@2x.webp')">
@@ -76,27 +76,42 @@
         </p>
         <button style="background-color: var(--light-green)">saiba mais</button>
       </div>
-      <img style="width:100%" src="src/images/plasticos.webp" alt="" />
+      <img style="width:80%" src="src/images/plasticos.webp" alt="" />
     </div>
   </SwiperSlide>
 </Swiper>
 
 <style>
+  @media only screen and (min-width: 1200px) {
+    .grid-2 {
+      height: 40%;
+      width: 50%;
+      grid-template-columns: 60% 40%;
+    }
+  }
+
+  @media only screen and (min-width: 768px) {
+    .grid-2 {
+      grid-template-columns: 50% 50%;
+      margin: 10%;
+    }
+  }
+
   .grid-2 {
     display: grid;
-    grid-template-columns: 60% 40%;
-    justify-items: center;
-    height: 40%;
-    width: 50%;
-    padding: 3rem 1rem 8rem 2rem;
     background-color: #ffffffb5;
     border-radius: 20px;
-
-    margin: 10% 30% 10% 10%;
+    justify-items: center;
+    padding: 3rem 1rem 8rem 2rem;
   }
 
   h2 {
     color: #314c4c;
+  }
+
+  img {
+    justify-self: center;
+    align-self: center;
   }
 
   p {

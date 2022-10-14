@@ -10,7 +10,7 @@ import "../styles/global.css";
   referrerpolicy="no-referrer"
 />
 
-<nav class="smol-flexbox-grid">
+<nav id="header" class="smol-flexbox-grid">
   <a href="/">
     <img class="logo" src="src/images/logo-horizontal.webp" alt="" />
   </a>
@@ -31,10 +31,32 @@ import "../styles/global.css";
   </div>
 </nav>
 
+<script>
+  // Hide and Show Desktop Header //
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (currentScrollPos === 0) {
+      document.getElementById("header").style.opacity = "1";
+    } else if (prevScrollpos > currentScrollPos) {
+      document.getElementById("header").style.opacity = "1";
+    } else {
+      document.getElementById("header").style.opacity = "0";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+</script>
+
 <style>
   nav {
     position: sticky;
-    padding: 30px;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    padding: 1rem 0;
+    z-index: 999;
+    transition: opacity 0.3s ease-out;
     align-items: center;
   }
 

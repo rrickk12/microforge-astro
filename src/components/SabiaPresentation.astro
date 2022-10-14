@@ -1,0 +1,59 @@
+---
+import KitImg from "./Kit-Img.astro";
+const names = [
+  "tecidos",
+  "sangue",
+  "semen",
+  "saliva",
+  "microrganismos",
+  "virus",
+  "plantas",
+];
+---
+
+<div class="wrapper">
+  <h2>
+    A Linha Sabiá tem kits de extração por beads magnéticas para sua amostra
+  </h2>
+  <hr />
+  <div class="kits">
+    {names.map((name) => <KitImg name={name} />)}
+  </div>
+  <hr />
+</div>
+
+<style>
+  .wrapper {
+    background-image: url("src/images/fundo_kits.webp");
+    padding: 10px 0;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 500px;
+  }
+
+  h2 {
+    padding: 30px 0;
+    text-align: center;
+    color: #fff;
+  }
+  hr {
+    border-bottom: solid 2px #fff;
+    text-align: center;
+    width: 75%;
+  }
+
+  .kits {
+    background-color: #ecececbf;
+    border-radius: 20px;
+    padding: 20px;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15ch), 1fr));
+    width: 80%;
+    margin: 50px auto;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
