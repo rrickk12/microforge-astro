@@ -1,5 +1,6 @@
 <script>
   import { Swiper, SwiperSlide } from "swiper/svelte";
+  import SwiperSlideContent from "./SwiperSlideContent.svelte";
 
   // Import Swiper styles
   import "swiper/css";
@@ -20,116 +21,40 @@
   speed={800}
   class="mySwiper"
 >
-  <SwiperSlide style="background-image: url('src/images/slide1@2x.webp')">
-    <div class="grid-2">
-      <div>
-        <h2>Extração de ácidos nucleicos por beads magnéticas</h2>
-        <p>
-          A Linha Sabiá tem as melhores opções para suas necessidades e para
-          variados tipos de amostras.
-        </p>
-        <button style="background-color: var(--orange)">saiba mais</button>
-      </div>
-      <img style="width:60%" src="src/images/sabia.webp" alt="" />
-    </div>
+  <SwiperSlide class="bg-[url('/src/images/slide1@2x.webp')] sm:hidden">
+    <SwiperSlideContent
+      title={"Extração de ácidos nucleicos por beads magnéticas"}
+      description={"A Linha Sabiá tem as melhores opções para suas necessidades e para variados tipos de amostras."}
+      imageSrc={"src/images/sabia.webp"}
+      imageAlt={"Logo da Linha Sabiá"}
+      btnColor={"bg-amber-500"}
+    />
   </SwiperSlide>
-  <SwiperSlide style="background-image: url('src/images/slide3@2x.webp')">
-    <div class="grid-2">
-      <div>
-        <h2>Agilize sua rotina no dia a dia com a Lise Rápida de amostras</h2>
-        <p>
-          A Linha Maracajá realiza a lise rápida de células, acelerando os
-          processos de preparo de amostra e permitindo com que se chegue mais
-          rápido nas aplicações downstream, como RT-qPCR e LAMP
-        </p>
-        <button style="background-color: var(--brown)">saiba mais</button>
-      </div>
-      <img style="width:80%" src="src/images/maracaja.webp" alt="" />
-    </div>
+  <SwiperSlide class="bg-[url('/src/images/slide3@2x.webp')]">
+    <SwiperSlideContent
+      title={"Agilize sua rotina no dia a dia com a Lise Rápida de amostras"}
+      description={"A Linha Maracajá realiza a lise rápida de células, acelerando os processos de preparo de amostra e permitindo com que se chegue mais rápido nas aplicações downstream, como RT-qPCR e LAMP."}
+      imageSrc={"src/images/maracaja.webp"}
+      imageAlt={"Logo da Linha Maracajá"}
+      btnColor={"bg-stone-500"}
+    />
   </SwiperSlide>
-  <SwiperSlide style="background-image: url('src/images/slide4@2x.webp')">
-    <div class="grid-2">
-      <div>
-        <h2>
-          Complemente ou abasteça seu laboratório com nossos plásticos e
-          acessórios
-        </h2>
-        <p>
-          Queremos facilitar em tudo a vida do cientista, por isso fornecemos
-          plásticos, tais como ponteiras, placas e tubos, assim como racks
-          magnéticas personalizadas
-        </p>
-        <button style="background-color: var(--medium-green)">saiba mais</button
-        >
-      </div>
-      <img style="width:80%" src="src/images/plasticos.webp" alt="" />
-    </div>
+  <SwiperSlide class="bg-[url('/src/images/slide4@2x.webp')]">
+    <SwiperSlideContent
+      title={"Complemente ou abasteça seu laboratório com nossos plásticos e acessórios"}
+      description={"Queremos facilitar em tudo a vida do cientista, por isso fornecemos plásticos, tais como ponteiras, placas e tubos, assim como racks magnéticas personalizadas."}
+      imageSrc={"src/images/plasticos.webp"}
+      imageAlt={"Imagem de plasticaria de laboratório"}
+      btnColor={"bg-emerald-900"}
+    />
   </SwiperSlide>
   <SwiperSlide style="background-image: url('src/images/slide5@2x.webp')">
-    <div class="grid-2">
-      <div>
-        <h2>Conte com nossa equipe para auxiliar seu desenho experimental</h2>
-        <p>
-          Sabemos a dificuldade em adequar novos kits ou protocolos à rotina
-          laboratorial. Nossa equipe formada por doutores, alunos e ex-alunos da
-          UNICAMP e de outras universidades está de prontidão para te ajudar
-        </p>
-        <button style="background-color: var(--light-green)">saiba mais</button>
-      </div>
-      <img style="width:80%" src="src/images/plasticos.webp" alt="" />
-    </div>
+    <SwiperSlideContent
+      title={"Conte com nossa equipe para auxiliar seu desenho experimental"}
+      description={"Sabemos a dificuldade em adequar novos kits ou protocolos à rotina laboratorial. Nossa equipe formada por doutores, alunos e ex-alunos da UNICAMP e de outras universidades está de prontidão para te ajudar"}
+      imageSrc={"src/images/plasticos.webp"}
+      imageAlt={"Imagem de plasticaria de laboratório"}
+      btnColor={"bg-emerald-900"}
+    />
   </SwiperSlide>
 </Swiper>
-
-<style>
-  @media only screen and (min-width: 1200px) {
-    .grid-2 {
-      height: 40%;
-      width: 50%;
-      grid-template-columns: 60% 40%;
-    }
-  }
-
-  @media only screen and (min-width: 768px) {
-    .grid-2 {
-      grid-template-columns: 50% 50%;
-      margin: 10%;
-    }
-  }
-
-  .grid-2 {
-    display: grid;
-    background-color: #ffffffb5;
-    border-radius: 20px;
-    justify-items: center;
-    padding: 3rem 1rem 8rem 2rem;
-  }
-
-  h2 {
-    color: #314c4c;
-  }
-
-  img {
-    justify-self: center;
-    align-self: center;
-  }
-
-  p {
-    color: #494949;
-  }
-
-  button {
-    font-weight: 700;
-    font-size: 14px;
-    text-shadow: 1px 1px 1px RGBA(0, 0, 0, 0.17);
-    padding: 12px;
-    border-radius: 20px;
-    border: none;
-    color: #fff;
-  }
-
-  button:hover {
-    cursor: pointer;
-    opacity: 90%;
-  }
-</style>

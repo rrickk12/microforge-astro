@@ -7,6 +7,9 @@ import image from "@astrojs/image";
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
+import tailwind from "@astrojs/tailwind";
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [image(), svelte()]
+  integrations: [image(), svelte(), tailwind()]
 });

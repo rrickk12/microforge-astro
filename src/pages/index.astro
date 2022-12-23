@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Carousel from "../components/Carousel.svelte";
 import Highlights from "../components/Highlights.astro";
 import SabiaPresentation from "../components/SabiaPresentation.astro";
+import ProductHighlight from "../components/ProductHighlight.svelte";
 ---
 
 <Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">
@@ -10,5 +11,6 @@ import SabiaPresentation from "../components/SabiaPresentation.astro";
     <Carousel client:visible />
     <Highlights />
     <SabiaPresentation />
+    <ProductHighlight />
   </main>
 </Layout>
