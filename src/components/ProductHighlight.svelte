@@ -5,7 +5,6 @@
   import "swiper/css";
   import "swiper/css/navigation";
   import "swiper/css/autoplay";
-  import "../styles/global.css";
 
   // import required modules
   import { Navigation, Autoplay } from "swiper";

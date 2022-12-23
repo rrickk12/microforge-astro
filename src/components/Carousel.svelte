@@ -6,7 +6,6 @@
   import "swiper/css";
   import "swiper/css/navigation";
   import "swiper/css/autoplay";
-  import "../styles/global.css";
 
   // import required modules
   import { Navigation, Autoplay } from "swiper";
@@ -21,7 +20,7 @@
   class="h-[70vh] cursor-grab hidden md:block"
 >
   <SwiperSlide
-    class="bg-[url('/src/images/slide1@2x.webp')] p-8 flex items-center bg-center bg-cover"
+    class="bg-[url('/src/images/slide1@2x.webp')] p-32 flex items-center bg-center bg-cover"
   >
     <SwiperSlideContent
       title={"Extração de ácidos nucleicos por beads magnéticas"}
