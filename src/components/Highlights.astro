@@ -1,21 +1,31 @@
-<div class="wrapper">
+<div>
+  <h2 class="text-center text-3xl font-bold mb-10 mt-10 text-teal-900">
+    Nossos diferenciais
+  </h2>
   <!-- First -->
-  <div class="highlight first">
+  <div class="flex lg:justify-center lg:mr-60 md:ml-5 mb-20">
     <img src="/src/images/amostra.webp" alt="" />
-    <p><span>+300 mil</span><br />exames realizados no Brasil inteiro</p>
+    <p class="flex flex-col justify-self-start self-center">
+      <span class="text-5xl font-bold text-amber-500 mb-2">+300 mil</span>
+      exames realizados no Brasil inteiro
+    </p>
   </div>
   <!-- Second -->
-  <div class="highlight first">
+  <div class="flex justify-center md:ml-20 mb-20">
     <img src="/src/images/experiencia.webp" alt="" />
-    <p>
-      <span>+14 anos</span><br />de experiência com o mercado de biologia
-      molecular
+    <p class="flex flex-col justify-self-start self-center">
+      <span class="text-5xl font-bold text-amber-500 mb-2">+14 anos</span>de
+      experiência com o mercado de biologia molecular
     </p>
   </div>
   <!-- Third -->
-  <div class="highlight first">
+  <div class="flex justify-center md:ml-60 mb-20">
     <img src="/src/images/qualificacao.webp" alt="" />
-    <p><span>alta qualificação</span><br />da nossa equipe técnica</p>
+    <p class="flex flex-col justify-self-start self-center">
+      <span class="text-5xl font-bold text-amber-500 mb-2"
+        >alta qualificação</span
+      ><br />da nossa equipe técnica
+    </p>
   </div>
 </div>
 
@@ -32,15 +42,6 @@
     height: 7rem;
   }
 
-  span {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--orange);
-  }
-
-  p {
-    text-align: center;
-  }
   @media only screen and (min-width: 768px) {
     .highlight {
       flex-direction: row;

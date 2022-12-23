@@ -19,9 +19,9 @@
   modules={[Navigation, Autoplay]}
   autoplay={{ delay: 5000 }}
   speed={800}
-  class="mySwiper"
+  class="h-[70vh] cursor-grab hidden md:block"
 >
-  <SwiperSlide class="bg-[url('/src/images/slide1@2x.webp')] sm:hidden">
+  <SwiperSlide class="bg-[url('/src/images/slide1@2x.webp')]">
     <SwiperSlideContent
       title={"Extração de ácidos nucleicos por beads magnéticas"}
       description={"A Linha Sabiá tem as melhores opções para suas necessidades e para variados tipos de amostras."}
