@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="grid grid-cols-2 bg-slate-50/75 p-8 rounded-xl h-3/4 w-2/4 ml-24 md:w-3/4 "
+  class="grid grid-cols-2 bg-slate-50/75 p-8 rounded-xl  lg:ml-20 lg:w-7/12 "
 >
   <div class="mt-5">
     <h2 class="text-2xl font-bold mb-4 text-teal-900">
