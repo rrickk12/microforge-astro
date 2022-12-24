@@ -10,8 +10,10 @@
   import { Navigation, Autoplay } from "swiper";
 </script>
 
-<div class="flex justify-center">
-  <h2>Produtos em destaque</h2>
+<div>
+  <h2 class="text-center text-3xl font-bold mb-10 mt-10 text-teal-900">
+    Produtos em destaque
+  </h2>
   <Swiper
     navigation={true}
     loop={true}

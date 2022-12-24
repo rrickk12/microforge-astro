@@ -11,35 +11,21 @@ const names = [
 ];
 ---
 
-<div class="wrapper">
-  <h2>
+<div
+  class="bg-[url('src/images/fundo_kits.webp')] flex flex-col bg-fixed bg-center bg-cover bg-no-repeat p-2 mb-12"
+>
+  <h2 class="p-6 text-center text-white text-2xl text-bold">
     A Linha Sabiá tem kits de extração por beads magnéticas para sua amostra
   </h2>
-  <hr />
+  <hr class="self-center" />
   <div class="kits">
     {names.map((name) => <KitImg name={name} />)}
   </div>
-  <hr />
+  <hr class="self-center" />
   <div class="button"><button>saiba mais</button></div>
 </div>
 
 <style>
-  .wrapper {
-    background-image: url("src/images/fundo_kits.webp");
-    padding: 10px 0;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 500px;
-    margin-bottom: 50px;
-  }
-
-  h2 {
-    padding: 30px 0;
-    text-align: center;
-    color: #fff;
-  }
   hr {
     border-bottom: solid 2px #fff;
     text-align: center;
