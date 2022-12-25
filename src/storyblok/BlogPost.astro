@@ -6,13 +6,17 @@ const content = renderRichText(blok.content);
 ---
 
 <article {...storyblokEditable(blok)}>
-  <h1 class="text-2xl text-center p-5 text-teal-900">
+  <h1 class="text-3xl text-center pt-10 pb-5 text-teal-900">
     {blok.title}
   </h1>
   <hr class="mb-5 w-1/2 m-auto" />
-  <img src={blok.startImage} class="w-1/4 ml-auto mr-auto mb-10" alt="" />
+  <img
+    src={blok.startImage}
+    class="lg:w-1/2 p-10 lg:px-0 mx-auto mb-16"
+    alt=""
+  />
   <div
-    class="text-lg text-justify mx-auto prose prose-p:mb-8 prose-h2:mb-4 prose-h2:text-teal-900"
+    class="text-lg text-justify mx-10 md:mx-auto prose prose-p:mb-8 prose-h2:mb-4 prose-h2:text-teal-900"
     set:html={content}
   >
   </div>
