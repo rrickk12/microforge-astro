@@ -3,12 +3,17 @@ import { storyblokEditable, renderRichText } from "@storyblok/astro";
 
 const { blok } = Astro.props;
 const content = renderRichText(blok.content);
-console.log(blok);
 ---
 
 <article {...storyblokEditable(blok)}>
-  <h1 class="text-2xl text-center p-10">{blok.title}</h1>
-  <img src={blok.startImage} class="w-1/4 ml-auto mr-auto" alt="" />
-
-  <Fragment set:html={content} />
+  <h1 class="text-2xl text-center p-5 text-teal-900">
+    {blok.title}
+  </h1>
+  <hr class="mb-5 w-1/2 m-auto" />
+  <img src={blok.startImage} class="w-1/4 ml-auto mr-auto mb-10" alt="" />
+  <div
+    class="text-lg text-justify mx-auto prose prose-p:mb-8 prose-h2:mb-4 prose-h2:text-teal-900"
+    set:html={content}
+  >
+  </div>
 </article>

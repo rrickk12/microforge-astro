@@ -1,5 +1,5 @@
 ---
-import { useStoryblokApi } from "@storyblok/astro";
+import { renderRichText, useStoryblokApi } from "@storyblok/astro";
 import Layout from "../layouts/Layout.astro";
 
 const storyblokApi = useStoryblokApi();
@@ -10,26 +10,33 @@ const { data } = await storyblokApi.get("cdn/stories", {
 const posts = data.stories.map((story) => {
   return {
     title: story.content.title,
-    date: new Date(story.published_at).toLocaleDateString("en-US", {
-      dateStyle: "full",
+    date: new Date(story.first_published_at).toLocaleDateString("pt-BR", {
+      dateStyle: "short",
     }),
-    description: story.content.description,
+    startImage: story.content.startImage,
+    excerpt: renderRichText(story.content.content).slice(0, 80),
     slug: story.full_slug,
   };
 });
 ---
 
 <Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">
-  <h1>MConfira nossos posts</h1>
-  <ul>
-    {
-      posts.map((post) => (
-        <li>
-          <time>{post.date}</time>
-          <a href={post.slug}>{post.title}</a>
-          <p>{post.description}</p>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="p-8">
+    <h2 class="text-3xl font-bold text-teal-900 mb-10">Confira nossos posts</h2>
+    <div class="grid grid-cols-4 gap-4">
+      {
+        posts.map((post) => (
+          <a
+            class="border rounded-md hover:border-teal-600 w-10/12"
+            href={post.slug}
+          >
+            <img class="rounded-md mx-auto mb-5" src={post.startImage} alt="" />
+            <h3 class="text-lg text-teal-900 p-2">{post.title}</h3>
+            <div class="prose-p:p-2" set:html={`${post.excerpt}...`} />
+            <p class="p-2 text-xs text-right">{post.date}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </Layout>
