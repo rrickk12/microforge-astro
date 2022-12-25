@@ -6,9 +6,16 @@
   referrerPolicy="no-referrer"
 />
 
-<nav id="header" class="flex flex-wrap justify-evenly gap-4">
+<nav
+  id="header"
+  class="flex flex-wrap justify-evenly gap-4 sticky top-0 left-0 right-0 p-3 z-50 items-center transition-all ease-in-out duration-300 bg-white"
+>
   <a href="/">
-    <img class="logo" src="src/images/logo-horizontal.webp" alt="" />
+    <img
+      class="hover:opacity-60 transition delay-150 h-20"
+      src="/src/images/logo-horizontal.webp"
+      alt=""
+    />
   </a>
   <div class="nav-items">
     <a href="/sobre">sobre</a>
@@ -21,19 +28,29 @@
 
   <div class="flex gap-2">
     <a href="/sobre"
-      ><i class="fa-brands fa-facebook text-teal-900 text-2xl p-1"></i>
+      ><i
+        class="fa-brands fa-facebook text-teal-900 text-2xl p-1 hover:opacity-80"
+      ></i>
     </a>
     <a href="/sobre"
-      ><i class="fa-brands fa-instagram text-teal-900 text-2xl p-1"></i>
+      ><i
+        class="fa-brands fa-instagram text-teal-900 text-2xl p-1 hover:opacity-80"
+      ></i>
     </a>
     <a href="/sobre"
-      ><i class="fa-brands fa-linkedin text-teal-900 text-2xl p-1"></i>
+      ><i
+        class="fa-brands fa-linkedin text-teal-900 text-2xl p-1 hover:opacity-80"
+      ></i>
     </a>
     <a href="/sobre"
-      ><i class="fa-solid fa-envelope text-teal-900 text-2xl p-1"></i>
+      ><i
+        class="fa-solid fa-envelope text-teal-900 text-2xl p-1 hover:opacity-80"
+      ></i>
     </a>
     <a href="/sobre"
-      ><i class="fa-brands fa-whatsapp text-teal-900 text-2xl p-1"></i>
+      ><i
+        class="fa-brands fa-whatsapp text-teal-900 text-2xl p-1 hover:opacity-80"
+      ></i>
     </a>
   </div>
 </nav>
@@ -55,18 +72,6 @@
 </script>
 
 <style>
-  nav {
-    position: sticky;
-    top: 0;
-    right: 0;
-    left: 0;
-    background-color: #fff;
-    padding: 1rem 0;
-    z-index: 999;
-    transition: opacity 0.3s ease-out;
-    align-items: center;
-  }
-
   .nav-items {
     display: flex;
     justify-content: center;
@@ -107,16 +112,6 @@
   }
 
   .nav-socials i:hover {
-    transition: all 0.3s;
-    opacity: 80%;
-  }
-
-  .logo {
-    width: auto;
-    height: 80px;
-  }
-
-  .logo:hover {
     transition: all 0.3s;
     opacity: 80%;
   }
