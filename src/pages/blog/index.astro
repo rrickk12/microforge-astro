@@ -1,6 +1,6 @@
 ---
 import { renderRichText, useStoryblokApi } from "@storyblok/astro";
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories", {
@@ -30,7 +30,11 @@ const posts = data.stories.map((story) => {
             class="border rounded-md hover:border-teal-600 w-10/12"
             href={post.slug}
           >
-            <img class="rounded-md mx-auto mb-5" src={post.startImage} alt="" />
+            <img
+              class="rounded-md mx-auto mb-5 h-2/4 w-full"
+              src={post.startImage}
+              alt=""
+            />
             <h3 class="text-lg text-teal-900 p-2">{post.title}</h3>
             <div class="prose-p:p-2" set:html={`${post.excerpt}...`} />
             <p class="p-2 text-xs text-right">{post.date}</p>

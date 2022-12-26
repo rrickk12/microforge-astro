@@ -17,53 +17,16 @@ const names = [
   <h2 class="p-6 text-center text-white text-2xl text-bold">
     A Linha Sabiá tem kits de extração por beads magnéticas para sua amostra
   </h2>
-  <hr class="self-center" />
-  <div class="kits">
+  <hr class="self-center border-b-2 bg-white w-3/4" />
+  <div
+    class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(min(100%,_15ch),_1fr))] w-3/4 my-10 mx-auto items-center justify-center bg-slate-50 opacity-80 border rounded-2xl p-5"
+  >
     {names.map((name) => <KitImg name={name} />)}
   </div>
-  <hr class="self-center" />
-  <div class="button"><button>saiba mais</button></div>
+  <hr class="self-center border-b-2 bg-white w-3/4" />
+  <div
+    class="button my-10 mx-auto bg-amber-500 rounded-2xl text-white hover:cursor-pointer hover:opacity-90 p-3"
+  >
+    <a href="/produtos/linha-sabia"><button>saiba mais</button></a>
+  </div>
 </div>
-
-<style>
-  hr {
-    border-bottom: solid 2px #fff;
-    text-align: center;
-    width: 75%;
-  }
-
-  .kits {
-    background-color: #ecececbf;
-    border-radius: 20px;
-    padding: 20px;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15ch), 1fr));
-    width: 80%;
-    margin: 50px auto;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .button {
-    margin-top: 50px;
-    display: flex;
-    justify-content: center;
-  }
-
-  button {
-    font-weight: 700;
-    font-size: 14px;
-    text-shadow: 1px 1px 1px RGBA(0, 0, 0, 0.17);
-    padding: 12px;
-    border-radius: 20px;
-    border: none;
-    color: #fff;
-    background-color: #f5981e;
-  }
-
-  button:hover {
-    cursor: pointer;
-    opacity: 90%;
-  }
-</style>
