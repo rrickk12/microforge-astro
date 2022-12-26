@@ -1,9 +1,42 @@
 ---
+import { useStoryblokApi } from "@storyblok/astro";
 import Layout from "../../layouts/Layout.astro";
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: "Product",
+});
+const products = data.stories.map((story) => {
+  return {
+    name: story.content.name,
+    image: story.content.image,
+    slug: story.full_slug,
+  };
+});
 ---
 
-<Layout title="Produtos">
-  <main>
-    <h1>Produtos</h1>
-  </main>
+<Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">
+  <div class="p-8">
+    <h2 class="text-3xl font-bold text-teal-900 mb-10">
+      Confira nossos produtos
+    </h2>
+    <div class="grid grid-cols-4 gap-4">
+      {
+        products.map((product) => (
+          <a
+            class="border rounded-md hover:border-teal-600 w-10/12"
+            href={product.slug}
+          >
+            <img
+              class="rounded-md mx-auto mb-5 w-3/4"
+              src={product.image}
+              alt=""
+            />
+            <h3 class="text-lg text-teal-900 p-2">{product.name}</h3>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </Layout>
