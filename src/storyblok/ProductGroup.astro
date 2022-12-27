@@ -1,0 +1,48 @@
+---
+import {
+  storyblokEditable,
+  renderRichText,
+  useStoryblokApi,
+} from "@storyblok/astro";
+const { blok } = Astro.props;
+const description = renderRichText(blok.description);
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get("cdn/stories", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: "Product",
+});
+
+const products = data.stories.map((story) => {
+  return {
+    name: story.name,
+    slug: story.slug,
+    image: story.content.image,
+  };
+});
+const pathname = new URL(Astro.request.url).pathname;
+const currentPathSlug = pathname.split("/produtos/")[1];
+---
+
+<article {...storyblokEditable(blok)}>
+  <h1 class="text-3xl text-center pt-10 pb-5 text-teal-900">
+    {blok.title}
+  </h1>
+  <hr class="mb-5 w-1/2 m-auto" />
+  <div class="grid md:grid-cols-2 mb-24">
+    <img src={blok.image} class="lg:w-1/4 md:ml-auto md:mr-20" alt="" />
+  </div>
+  <div class="prose" set:html={description}></div>
+  <div>
+    {
+      products.map((product) => (
+        <div class="flex flex-col items-center">
+          <a href={`/produtos/${currentPathSlug}/${product.slug}`}>
+            <p>{product.name}</p>
+            <img src={product.image} class="w-1/4" alt={product.name} />
+          </a>
+        </div>
+      ))
+    };
+  </div>
+</article>
