@@ -8,7 +8,7 @@
 
 <nav
   id="header"
-  class="flex flex-wrap justify-evenly gap-4 sticky top-0 left-0 right-0 p-3 z-50 items-center transition-all ease-in-out duration-300 bg-white"
+  class="flex flex-wrap justify-evenly gap-4 sticky top-0 left-0 right-0 p-8 z-50 items-center transition-all ease-in-out duration-300 bg-white"
 >
   <a href="/">
     <img
@@ -17,8 +17,8 @@
       alt=""
     />
   </a>
-  <div class="nav-items">
-    <a href="/sobre">sobre</a>
+  <div class="flex justify-center gap-2 md:gap-5 text-xl">
+    <a class="hover:border-b-2 hover:border-b-teal-900" href="/sobre">sobre</a>
     <a href="/produtos">produtos</a>
     <a href="/pd">p&d</a>
     <a href="/blog">blog</a>
@@ -26,28 +26,28 @@
     <a href="/sobre"><i class="fa-solid fa-cart-shopping cart"></i></a>
   </div>
 
-  <div class="flex gap-2">
-    <a href="/sobre"
+  <div class="flex gap-2 mt-5 md:mt-0">
+    <a href="https://www.facebook.com/100068091380187/" target="_blank"
       ><i
         class="fa-brands fa-facebook text-teal-900 text-2xl p-1 hover:opacity-80"
       ></i>
     </a>
-    <a href="/sobre"
+    <a href="https://www.instagram.com/micro.forge/" target="_blank"
       ><i
         class="fa-brands fa-instagram text-teal-900 text-2xl p-1 hover:opacity-80"
       ></i>
     </a>
-    <a href="/sobre"
+    <a href="https://www.linkedin.com/company/microforge/" target="_blank"
       ><i
         class="fa-brands fa-linkedin text-teal-900 text-2xl p-1 hover:opacity-80"
       ></i>
     </a>
-    <a href="/sobre"
+    <a href="mailto:comercial@micro-forge.com" target="_blank"
       ><i
         class="fa-solid fa-envelope text-teal-900 text-2xl p-1 hover:opacity-80"
       ></i>
     </a>
-    <a href="/sobre"
+    <a href="https://api.whatsapp.com/send?phone=5519999453544" target="_blank"
       ><i
         class="fa-brands fa-whatsapp text-teal-900 text-2xl p-1 hover:opacity-80"
       ></i>
@@ -71,48 +71,21 @@
   };
 </script>
 
-<style>
-  .nav-items {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
+<script>
+  const navLinks = document.querySelectorAll("nav a");
 
-  .nav-items a {
-    color: var(--text-color);
-    font-size: 20px;
-  }
+  navLinks.forEach((link) => {
+    link.classList.remove("text-teal-900", "border-b-2", "border-b-teal-900");
 
-  .nav-items a:hover {
-    transition: 0.3s;
-    color: var(--dark-green);
-  }
+    // `slice` here to remove the first `/` in pathname
+    const currentPath = window.location.pathname.slice("1");
 
-  .nav-items a:focus {
-    color: var(--dark-green);
-  }
+    // `link.href` returns a whole url, such as: "https://somedomain.com/posts" and we only need the last part
+    const hrefArray = link.href.split("/");
+    const thisPath = hrefArray[hrefArray.length - 1];
 
-  .cart {
-    font-size: 20px;
-    justify-content: center;
-    color: var(--medium-green);
-  }
-
-  .nav-socials {
-    display: flex;
-    gap: 10px;
-  }
-
-  .nav-socials i {
-    color: #ffff;
-    font-size: 20px;
-    background-color: var(--medium-green);
-    border-radius: 50%;
-    padding: 12px;
-  }
-
-  .nav-socials i:hover {
-    transition: all 0.3s;
-    opacity: 80%;
-  }
-</style>
+    if (currentPath === thisPath && currentPath !== "") {
+      link.classList.add("text-teal-900", "border-b-2", "border-b-teal-900");
+    }
+  });
+</script>
