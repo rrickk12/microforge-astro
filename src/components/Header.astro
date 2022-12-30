@@ -18,12 +18,27 @@
     />
   </a>
   <div class="flex justify-center gap-2 md:gap-5 text-xl">
-    <a class="hover:border-b-2 hover:border-b-teal-900" href="/sobre">sobre</a>
-    <a href="/produtos">produtos</a>
-    <a href="/pd">p&d</a>
-    <a href="/blog">blog</a>
-    <a href="/contato">contato</a>
-    <a href="/sobre"><i class="fa-solid fa-cart-shopping cart"></i></a>
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/sobre">sobre</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/produtos">produtos</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/pd">p&d</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/blog">blog</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/contato">contato</a
+    >
+    <a href="/cart"><i class="fa-solid fa-cart-shopping cart"></i></a>
   </div>
 
   <div class="flex gap-2 mt-5 md:mt-0">
@@ -75,7 +90,7 @@
   const navLinks = document.querySelectorAll("nav a");
 
   navLinks.forEach((link) => {
-    link.classList.remove("text-teal-900", "border-b-2", "border-b-teal-900");
+    link.classList.remove("text-teal-900", "border-b-teal-900");
 
     // `slice` here to remove the first `/` in pathname
     const currentPath = window.location.pathname.slice("1");
