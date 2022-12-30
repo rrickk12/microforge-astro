@@ -1,0 +1,31 @@
+---
+const { products, productGroupSlug } = Astro.props;
+---
+
+<div class="grid grid-cols-4 gap-4">
+  {
+    products
+      .filter((product) => product.slug.includes(productGroupSlug))
+      .map((product) => (
+        <a
+          class="border rounded-md hover:border-teal-600 w-10/12 hover:scale-105 transition-all duration-300"
+          href={product.slug}
+        >
+          <h3 class="text-lg text-teal-900 p-2 text-center">{product.name}</h3>
+
+          <img
+            class="rounded-md mx-auto mb-5 w-3/4 hover:opacity-75"
+            src={product.image}
+            alt=""
+          />
+          {product.featured && (
+            <p class="text-right text-teal-500 p-2">
+              <span class="border rounded-lg p-1  border-teal-500">
+                Destaque
+              </span>
+            </p>
+          )}
+        </a>
+      ))
+  }
+</div>
