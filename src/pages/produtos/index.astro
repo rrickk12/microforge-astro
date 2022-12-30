@@ -1,43 +1,92 @@
 ---
-import { useStoryblokApi } from "@storyblok/astro";
+import { renderRichText, useStoryblokApi } from "@storyblok/astro";
+import ProductGroupComponent from "../../components/ProductGroupComponent.astro";
 import Layout from "../../layouts/Layout.astro";
 
 const storyblokApi = useStoryblokApi();
-const { data } = await storyblokApi.get("cdn/stories", {
+const productData = await storyblokApi.get("cdn/stories", {
   version: import.meta.env.DEV ? "draft" : "published",
   content_type: "Product",
 });
-const products = data.stories.map((story) => {
+
+const productGroupData = await storyblokApi.get("cdn/stories", {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: "productGroup",
+});
+
+const products = productData.data.stories.map((story) => {
   return {
     name: story.content.name,
     image: story.content.image,
     slug: story.full_slug,
+    featured: story.content.featured,
   };
 });
+
+// Sort products by featured
+products.sort((a, b) => {
+  if (a.featured && !b.featured) {
+    return -1;
+  } else if (!a.featured && b.featured) {
+    return 1;
+  } else {
+    return 0;
+  }
+});
+//
+
+const productGroups = productGroupData.data.stories.map((story) => {
+  return {
+    title: story.content.title,
+    subtitle: story.content.subtitle,
+    slug: story.slug,
+    descriptionExcerpt: renderRichText(story.content.description).slice(0, 200),
+  };
+});
+
+const sectionColors = ["bg-amber-500", "bg-teal-800", "bg-teal-700"];
 ---
 
 <Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">
-  <div class="p-8">
-    <h2 class="text-3xl font-bold text-teal-900 mb-10">
-      Confira nossos produtos
+  <img src="src/images/products/productPageHead.webp" alt="" />
+  <div class="p-8 flex flex-col items-center">
+    <h2 class="text-3xl text-center font-bold text-teal-900 mb-10">
+      Catálogo de Produtos
     </h2>
-    <div>
-      <a href="/produtos/linha-sabia"><h2>Linha Sabiá</h2></a>
-    </div>
-    <div class="grid grid-cols-4 gap-4">
-      {
-        products.map((product) => (
+    <div class="w-3/4">
+      <hr class="mx-auto border-teal-800 mb-10" />
+      <div class="grid grid-cols-3">
+        <div class="flex flex-col items-center gap-2">
+          <h3 class="text-teal-900 text-xl">Extração de DNA e RNA</h3>
           <a
-            class="border rounded-md hover:border-teal-600 w-10/12"
-            href={product.slug}
+            class="text-teal-900 hover:text-teal-800"
+            href="#linha-sabia-section">Linha Sabiá</a
           >
-            <img
-              class="rounded-md mx-auto mb-5 w-3/4"
-              src={product.image}
-              alt=""
-            />
-            <h3 class="text-lg text-teal-900 p-2">{product.name}</h3>
-          </a>
+          <a href="#linha-maracaja-section">Linha Maracajá</a>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <h3 class="text-teal-900 text-xl">Acessórios</h3>
+          <a href="#rack-section">Racks Magnéticas</a>
+          <a href="#plastic-section">Plásticos</a>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <h3 class="text-teal-900 text-xl">Soluções</h3>
+          <a href="#solution-section">Soluções</a>
+        </div>
+      </div>
+      <hr class="mx-auto border-teal-800 mt-10" />
+      {
+        productGroups.map((productGroup, idx) => (
+          <ProductGroupComponent
+            productGroupSlug={productGroup.slug}
+            productGroupTitle={productGroup.title}
+            products={products.filter((product) =>
+              product.slug.includes(productGroup.slug)
+            )}
+            productGroupDescriptionExcerpt={productGroup.descriptionExcerpt}
+            sectionColor={sectionColors[idx]}
+            productGroupsubTitle={productGroup.subtitle}
+          />
         ))
       }
     </div>
