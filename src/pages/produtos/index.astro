@@ -7,11 +7,13 @@ const storyblokApi = useStoryblokApi();
 const productData = await storyblokApi.get("cdn/stories", {
   version: import.meta.env.DEV ? "draft" : "published",
   content_type: "Product",
+  sort_by: "created_at",
 });
 
 const productGroupData = await storyblokApi.get("cdn/stories", {
   version: import.meta.env.DEV ? "draft" : "published",
   content_type: "productGroup",
+  sort_by: "created_at",
 });
 
 const products = productData.data.stories.map((story) => {
@@ -44,7 +46,7 @@ const productGroups = productGroupData.data.stories.map((story) => {
   };
 });
 
-const sectionColors = ["bg-amber-500", "bg-teal-800", "bg-teal-700"];
+const sectionColors = ["bg-amber-500", "bg-amber-900", "bg-teal-700"];
 ---
 
 <Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">

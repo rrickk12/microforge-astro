@@ -7,6 +7,9 @@ import {
 const { blok } = Astro.props;
 const description = renderRichText(blok.description);
 
+const pathname = new URL(Astro.request.url).pathname;
+const currentPathSlug = pathname.split("/produtos/")[1];
+
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories", {
   version: import.meta.env.DEV ? "draft" : "published",
@@ -16,12 +19,15 @@ const { data } = await storyblokApi.get("cdn/stories", {
 const products = data.stories.map((story) => {
   return {
     name: story.name,
+    full_slug: story.full_slug,
     slug: story.slug,
     image: story.content.image,
   };
 });
-const pathname = new URL(Astro.request.url).pathname;
-const currentPathSlug = pathname.split("/produtos/")[1];
+
+products.filter((product) => {
+  return product.full_slug.includes(currentPathSlug);
+});
 ---
 
 <article {...storyblokEditable(blok)}>
