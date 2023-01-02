@@ -3,9 +3,9 @@
   import { removeCartItem } from "../cartStore";
   import { fly } from "svelte/transition";
 
-  export let name;
-  export let institution;
-  export let email;
+  export let name = "";
+  export let institution = "";
+  export let email = "";
 
   function submitQuote(e) {
     const formData = new FormData(e.target);
@@ -15,20 +15,21 @@
       data[key] = value;
     }
     data = { ...data, products: cartItems.get() };
+    console.log(data);
   }
 </script>
 
 {#if $isCartOpen}
-  <form on:submit|preventDefault={submitQuote}>
-    <aside
-      in:fly={{ x: 100, duration: 500 }}
-      out:fly={{ x: 100, duration: 500 }}
-      class="bg-slate-50 border fixed h-5/6 overflow-auto z-50 top-24 right-0 p-3 md:w-1/3 flex flex-col"
+  <aside
+    in:fly={{ x: 100, duration: 500 }}
+    out:fly={{ x: 100, duration: 500 }}
+    class="bg-slate-50 border fixed h-5/6 overflow-auto z-50 top-24 right-0 p-3 md:w-1/3 flex flex-col"
+  >
+    <button
+      class="mr-2 rounded-md bg-red-100 mb-5 w-8 self-end "
+      on:click={() => isCartOpen.set(false)}>X</button
     >
-      <button
-        class="mr-2 rounded-md bg-red-100 mb-5 w-8 self-end "
-        on:click={() => isCartOpen.set(false)}>X</button
-      >
+    <form on:submit|preventDefault={submitQuote} class="flex flex-col gap-2">
       {#if Object.values($cartItems).length}
         <p class="text-center mb-10 text-lg text-teal-900">Seus itens</p>
 
@@ -45,33 +46,33 @@
             </div>
           </li>
         {/each}
-        <div class="flex flex-col gap-2">
-          <p class="text-teal-900">Dados para cotação</p>
-          <label for="name">Nome</label>
-          <input
-            required
-            name="name"
-            type="text"
-            placeholder="Nome completo"
-            bind:value={name}
-          />
-          <label for="institution">Instituição</label>
-          <input
-            required
-            name="institution"
-            type="text"
-            placeholder="Laboratório ou empresa"
-            bind:value={institution}
-          />
-          <label for="email">Email</label>
-          <input
-            required
-            name="email"
-            type="email"
-            placeholder="Seu email para a cotação"
-            bind:value={email}
-          />
-        </div>
+
+        <p class="text-teal-900">Dados para cotação</p>
+        <label for="name">Nome</label>
+        <input
+          required
+          name="name"
+          type="text"
+          placeholder="Nome completo"
+          bind:value={name}
+        />
+        <label for="institution">Instituição</label>
+        <input
+          required
+          name="institution"
+          type="text"
+          placeholder="Laboratório ou empresa"
+          bind:value={institution}
+        />
+        <label for="email">Email</label>
+        <input
+          required
+          name="email"
+          type="email"
+          placeholder="Seu email para a cotação"
+          bind:value={email}
+        />
+
         <button
           type="submit"
           class="mt-20 text-white p-2 rounded-xl hover:bg-amber-500 w-1/2 self-center bg-teal-900"
@@ -80,6 +81,6 @@
       {:else}
         <p>Seu carrinho está vazio</p>
       {/if}
-    </aside>
-  </form>
+    </form>
+  </aside>
 {/if}
