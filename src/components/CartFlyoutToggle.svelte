@@ -4,9 +4,10 @@
 
 <!--use "$" to read the store value-->
 <button class="flex" on:click={() => isCartOpen.set(!$isCartOpen)}
-  >Cart <span class="text-xs border rounded-lg">
-    {#if Object.values($cartItems).length}
-      {Object.values($cartItems).length}
-    {/if}
-  </span></button
->
+  >Cart
+  {#if Object.values($cartItems).length}
+    <span class="text-xs border rounded-lg"
+      >{Object.values($cartItems).length}</span
+    >
+  {/if}
+</button>

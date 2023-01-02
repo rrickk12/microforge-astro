@@ -1,5 +1,6 @@
 <script>
   import { isCartOpen, cartItems } from "../cartStore";
+  import { removeCartItem } from "../cartStore";
   import { fly } from "svelte/transition";
 </script>
 
@@ -17,10 +18,13 @@
       <p class="text-center mb-10 text-lg text-teal-900">Seus itens</p>
 
       {#each Object.values($cartItems) as cartItem}
-        <li class="list-none">
+        <li class="list-none mb-5">
           <h3 class="font-bold">{cartItem.name}</h3>
           <p>Conformação: {cartItem.size}</p>
           <p>Quantidade: {cartItem.quantity}</p>
+          <button on:click={removeCartItem(cartItem.name)}
+            ><i class="fas fa-trash text-amber-500" /></button
+          >
         </li>
       {/each}
       <button

@@ -1,14 +1,15 @@
 <script>
   import { addCartItem, isCartOpen } from "../cartStore";
 
-  function addToCart() {
+  function addToCart(e) {
     isCartOpen.set(true);
-    addCartItem({
-      name: "Hardcoded Item",
-      size: "Hardcoded Size",
-      quantity: 1,
-    });
-    console.log(hardcodedItemInfo);
+    const formData = new FormData(e.target);
+    const data = {};
+    for (let field of formData) {
+      const [key, value] = field;
+      data[key] = value;
+    }
+    addCartItem(data);
   }
 </script>
 

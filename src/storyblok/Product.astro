@@ -18,6 +18,9 @@ const description = renderRichText(blok.description);
     <div class="flex flex-col items-center justify-center md:items-start">
       <AddToCartForm client:load>
         <div>
+          <input type="hidden" name="name" value={blok.name} />
+          <input type="hidden" name="imageSrc" value={blok.image} />
+
           <label class="text-xl mr-3" for="size">Conformação</label>
           <select name="size" class="p-2 bg-white">
             {blok.sizes.map((size) => <option value={size}>{size}</option>)}

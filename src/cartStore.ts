@@ -1,25 +1,50 @@
+import { persistentMap, persistentAtom } from "@nanostores/persistent";
 import { atom, map } from "nanostores";
 
 export const isCartOpen = atom(false);
 
 export type CartItem = {
-  id: string;
   name: string;
+  size: string;
   imageSrc: string;
   quantity: number;
 };
 
-export const cartItems = map<Record<string, CartItem>>({});
+export const cartItems = persistentMap<Record<string, CartItem>>(
+  "cart:",
+  {},
+  {
+    encode: JSON.stringify,
+    decode: JSON.parse,
+  }
+);
 
-type ItemDisplayInfo = Pick<CartItem, "id" | "name" | "imageSrc">;
-export function addCartItem({ id, name, imageSrc }: ItemDisplayInfo) {
-  const existingEntry = cartItems.get()[id];
+type ItemDisplayInfo = Pick<
+  CartItem,
+  "name" | "imageSrc" | "size" | "quantity"
+>;
+export function addCartItem({
+  name,
+  imageSrc,
+  size,
+  quantity,
+}: ItemDisplayInfo) {
+  const existingEntry = cartItems.get()[name];
   if (existingEntry) {
-    cartItems.setKey(id, {
+    cartItems.setKey(name, {
       ...existingEntry,
-      quantity: existingEntry.quantity + 1,
+      quantity:
+        parseInt(existingEntry.quantity.toString()) +
+        parseInt(quantity.toString()),
     });
   } else {
-    cartItems.setKey(id, { id, name, imageSrc, quantity: 1 });
+    cartItems.setKey(name, { name, imageSrc, size, quantity });
   }
+}
+
+export function removeCartItem(name: string) {
+  const cart = cartItems.get();
+  window.localStorage.removeItem(`cart:${name}`);
+  delete cart[name];
+  //window.location.reload();
 }
