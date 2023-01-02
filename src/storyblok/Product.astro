@@ -37,9 +37,21 @@ const description = renderRichText(blok.description);
             min="1"
           />
         </div>
-        <button type="submit">Adicionar à cotação</button>
+        <button
+          class="bg-teal-900 hover:bg-amber-400 text-white p-2 rounded-xl"
+          type="submit">Adicionar à cotação</button
+        >
       </AddToCartForm>
     </div>
+  </div>
+  <div class="text-center mb-10">
+    Precisa de ajuda?
+    <a
+      target="_blank"
+      class="text-teal-900 hover:text-teal-800 hover:decoration-solid"
+      href={`https://api.whatsapp.com/send?phone=5519999453544&text=Ol%C3%A1!%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20produto%20${blok.name}`}
+      >Fale com nossos cientistas!</a
+    >
   </div>
 
   <div
