@@ -33,6 +33,7 @@ export function addCartItem({
   if (existingEntry) {
     cartItems.setKey(name, {
       ...existingEntry,
+      size: size,
       quantity: quantity,
     });
   } else {
