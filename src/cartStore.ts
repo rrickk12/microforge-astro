@@ -33,9 +33,7 @@ export function addCartItem({
   if (existingEntry) {
     cartItems.setKey(name, {
       ...existingEntry,
-      quantity:
-        parseInt(existingEntry.quantity.toString()) +
-        parseInt(quantity.toString()),
+      quantity: quantity,
     });
   } else {
     cartItems.setKey(name, { name, imageSrc, size, quantity });
@@ -43,8 +41,6 @@ export function addCartItem({
 }
 
 export function removeCartItem(name: string) {
-  const cart = cartItems.get();
+  cartItems.setKey(name, undefined);
   window.localStorage.removeItem(`cart:${name}`);
-  delete cart[name];
-  //window.location.reload();
 }
