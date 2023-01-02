@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CartFlyout from "../components/CartFlyout.svelte";
 export interface Props {
   title: string;
 }
@@ -19,6 +20,7 @@ const { title } = Astro.props;
   </head>
   <Header />
   <body class="text-gray-700 flex flex-col min-h-screen">
+    <CartFlyout client:load />
     <slot />
     <Footer />
   </body>

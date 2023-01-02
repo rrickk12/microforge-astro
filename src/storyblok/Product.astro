@@ -1,5 +1,6 @@
 ---
 import { storyblokEditable, renderRichText } from "@storyblok/astro";
+import AddToCartForm from "../components/AddToCartForm.svelte";
 const { blok } = Astro.props;
 const description = renderRichText(blok.description);
 ---
@@ -13,29 +14,33 @@ const description = renderRichText(blok.description);
     <div>
       <img src={blok.image} class="lg:w-1/4 md:ml-auto md:mr-20" alt="" />
     </div>
+
     <div class="flex flex-col items-center justify-center md:items-start">
-      <div>
-        <label class="text-xl mr-3" for="size">Conformação</label>
-        <select name="size" class="p-2 bg-white">
-          {blok.sizes.map((size) => <option value={size}>{size}</option>)}
-        </select>
-      </div>
-      <div class="my-5">
-        <label class="text-xl" for="quantity">Quantidade:</label>
-        <input
-          name="quantity"
-          id="qty"
-          value="1"
-          class="w-20 text-center text-xl"
-          type="number"
-          min="1"
-        />
-      </div>
+      <AddToCartForm client:load>
+        <div>
+          <label class="text-xl mr-3" for="size">Conformação</label>
+          <select name="size" class="p-2 bg-white">
+            {blok.sizes.map((size) => <option value={size}>{size}</option>)}
+          </select>
+        </div>
+        <div class="my-5">
+          <label class="text-xl" for="quantity">Quantidade:</label>
+          <input
+            name="quantity"
+            id="qty"
+            value="1"
+            class="w-20 text-center text-xl"
+            type="number"
+            min="1"
+          />
+        </div>
+        <button type="submit">Adicionar à cotação</button>
+      </AddToCartForm>
     </div>
   </div>
 
   <div
-    class="text-lg text-justify mx-10 md:mx-auto prose prose-p:mb-8 prose-h2:mb-4 prose-h2:text-teal-900"
+    class="text-lg text-justify mx-10 md:mx-auto prose prose-p:mb-8 prose-h3:mb-4 prose-h3:text-teal-900"
     set:html={description}
   >
   </div>

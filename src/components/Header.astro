@@ -1,3 +1,7 @@
+---
+import CartFlyoutToggle from "./CartFlyoutToggle.svelte";
+---
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -38,7 +42,7 @@
       class="border-b-2 border-b-transparent hover:border-b-teal-900"
       href="/contato">contato</a
     >
-    <a href="/cart"><i class="fa-solid fa-cart-shopping cart"></i></a>
+    <CartFlyoutToggle client:load />
   </div>
 
   <div class="flex gap-2 mt-5 md:mt-0">
