@@ -1,5 +1,5 @@
-import { persistentMap, persistentAtom } from "@nanostores/persistent";
-import { atom, map } from "nanostores";
+import { persistentMap } from "@nanostores/persistent";
+import { atom } from "nanostores";
 
 export const isCartOpen = atom(false);
 
