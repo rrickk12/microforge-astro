@@ -35,7 +35,8 @@
   />
   <label class="text-teal-900" for="message">Sua Mensagem*</label>
   <textarea class="border" placeholder="Mensagem" bind:value={message} />
-  <button class="bg-teal-900 text-white rounded-xl w-1/2 mt-5" type="submit"
-    >Enviar</button
+  <button
+    class="bg-teal-900 text-white rounded-xl w-1/2 mt-5 self-center"
+    type="submit">Enviar</button
   >
 </form>
