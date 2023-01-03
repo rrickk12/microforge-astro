@@ -1,6 +1,7 @@
 ---
 import Motivation from "../components/Motivation.astro";
 import Layout from "../layouts/Layout.astro";
+import animalsImage from "../images/products/productPageHead.webp";
 ---
 
 <Layout title="Sobre">
@@ -63,7 +64,7 @@ import Layout from "../layouts/Layout.astro";
           Por que as linhas tem nomes de animais?
         </h2>
         <img
-          src="src/images/products/productPageHead.webp"
+          src={animalsImage.src}
           alt="Animais da Microforge"
           class="lg:w-1/2 mx-auto mb-5"
         />

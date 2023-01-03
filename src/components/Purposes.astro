@@ -1,30 +1,37 @@
 ---
+import purpose1 from "../images/proposito1.webp";
+import purpose2 from "../images/proposito2.webp";
+import purpose3 from "../images/proposito3.webp";
+
 const purposes = [
   {
     title: "Prazer em ser cientista",
     description:
       "Viver na fronteira do conhecimento é ao mesmo tempo recompensante e desafiador. Tornamos os preparativos para sua experimentação simples pra você focar no que importa: a verdade",
+    image: purpose1,
   },
   {
     title: "A comunidade",
     description:
       "Absolutamente tudo que facilita nossas vidas tem um pouquinho de ciência. Com cientistas mais felizes, a sociedade progride mais rapidamente e a vida fica mais simples e melhor de ser vivida",
+    image: purpose2,
   },
   {
     title: "Biorreverente",
     description:
       "Temos como objetivo cuidar, zelar e respeitar tudo o que tem vida. Dessa maneira, mantemos o equilíbrio, a qualidade e a continuidade do que é nosso. Simples assim.",
+    image: purpose3,
   },
 ];
 ---
 
 <div
-  class="bg-[url('src/images/propositos_fundo.webp')] p-5 md:p-20 bg-no-repeat bg-cover mb-5"
+  class="bg-[url('/src/images/propositos_fundo.webp')] p-5 md:p-20 bg-no-repeat bg-cover mb-5"
 >
   <h2 class="text-2xl text-teal-900 font-bold text-center md:text-start">
     Nossos propósitos
   </h2>
-  <p class="mb-10 text-xl text-center">
+  <p class="mb-10 text-xl text-center md:text-left">
     Tornar a ciência prazerosa para quem faz, encantadora para quem vive e
     biorreverente
   </p>
@@ -32,11 +39,7 @@ const purposes = [
     {
       purposes.map((purpose, idx) => (
         <div class="bg-slate-200 opacity-90 flex flex-col p-2 rounded-lg shadow-2xl border-white border-4 max-w-sm">
-          <img
-            class="rounded-t-lg mb-5"
-            src={`src/images/proposito${idx + 1}.webp`}
-            alt=""
-          />
+          <img class="rounded-t-lg mb-5" src={purpose.image.src} alt="" />
           <h3 class="text-teal-900 text-lg text-center mb-2">
             {purpose.title}
           </h3>

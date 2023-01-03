@@ -1,13 +1,9 @@
 ---
-interface Props {
-  name: string;
-}
-
-const { name } = Astro.props;
+const { name, img } = Astro.props;
 ---
 
 <div>
-  <img src=`src/images/sample_drawing/${name}.webp` alt={name} />
+  <img src={img.src} alt={name} />
   <p>{name}</p>
 </div>
 

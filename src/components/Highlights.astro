@@ -1,10 +1,16 @@
+---
+import sample from "../images/amostra.webp";
+import experiencia from "../images/experiencia.webp";
+import qualificacao from "../images/qualificacao.webp";
+---
+
 <div>
   <h2 class="text-center text-3xl font-bold mb-10 mt-10 text-teal-900">
     Nossos diferenciais
   </h2>
   <!-- First -->
   <div class="flex lg:justify-center lg:mr-60 md:ml-5 mb-20">
-    <img class="h-28" src="/src/images/amostra.webp" alt="" />
+    <img class="h-28" src={sample.src} alt="" />
     <p class="flex flex-col justify-self-start self-center">
       <span class="text-4xl font-bold text-amber-500 mb-2">+300 mil</span>
       exames realizados no Brasil inteiro
@@ -12,7 +18,7 @@
   </div>
   <!-- Second -->
   <div class="flex justify-center md:ml-20 mb-20">
-    <img class="h-28" src="/src/images/experiencia.webp" alt="" />
+    <img class="h-28" src={experiencia.src} alt="" />
     <p class="flex flex-col justify-self-start self-center">
       <span class="text-4xl font-bold text-amber-500 mb-2">+14 anos</span>de
       experiência com o mercado de biologia molecular
@@ -20,7 +26,7 @@
   </div>
   <!-- Third -->
   <div class="flex justify-center md:ml-60 mb-20">
-    <img class="h-28" src="/src/images/qualificacao.webp" alt="" />
+    <img class="h-28" src={qualificacao.src} alt="" />
     <p class="flex flex-col justify-self-start self-center">
       <span class="text-4xl font-bold text-amber-500 mb-2"
         >alta qualificação</span

@@ -2,6 +2,7 @@
 import { renderRichText, useStoryblokApi } from "@storyblok/astro";
 import ProductGroupComponent from "../../components/ProductGroupComponent.astro";
 import Layout from "../../layouts/Layout.astro";
+import animalsImage from "../../images/products/productPageHead.webp";
 
 const storyblokApi = useStoryblokApi();
 const productData = await storyblokApi.get("cdn/stories", {
@@ -55,7 +56,7 @@ const sectionColors = [
 ---
 
 <Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">
-  <img src="src/images/products/productPageHead.webp" alt="" />
+  <img src={animalsImage.src} alt="" />
   <div class="p-8 flex flex-col items-center">
     <h2 class="text-3xl text-center font-bold text-teal-900 mb-10">
       Catálogo de Produtos

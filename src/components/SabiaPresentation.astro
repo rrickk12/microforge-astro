@@ -1,18 +1,26 @@
 ---
 import KitImg from "./Kit-Img.astro";
-const names = [
-  "tecidos",
-  "sangue",
-  "semen",
-  "saliva",
-  "microrganismos",
-  "virus",
-  "plantas",
+import tecidos from "../images/sample_drawing/tecidos.webp";
+import sangue from "../images/sample_drawing/sangue.webp";
+import saliva from "../images/sample_drawing/saliva.webp";
+import semen from "../images/sample_drawing/semen.webp";
+import microrganismos from "../images/sample_drawing/microrganismos.webp";
+import virus from "../images/sample_drawing/virus.webp";
+import plantas from "../images/sample_drawing/plantas.webp";
+
+const kitTypes = [
+  { name: "tecidos", img: tecidos },
+  { name: "sangue", img: sangue },
+  { name: "saliva", img: saliva },
+  { name: "semen", img: semen },
+  { name: "microrganismos", img: microrganismos },
+  { name: "virus", img: virus },
+  { name: "plantas", img: plantas },
 ];
 ---
 
 <div
-  class="bg-[url('src/images/fundo_kits.webp')] flex flex-col bg-fixed bg-center bg-cover bg-no-repeat p-2 mb-12"
+  class="bg-[url('/src/images/fundo_kits.webp')] flex flex-col bg-fixed bg-center bg-cover bg-no-repeat p-2 mb-12"
 >
   <h2 class="p-6 text-center text-white text-2xl text-bold">
     A Linha Sabiá tem kits de extração por beads magnéticas para sua amostra
@@ -21,7 +29,11 @@ const names = [
   <div
     class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(min(100%,_15ch),_1fr))] w-3/4 my-10 mx-auto items-center justify-center bg-slate-50 opacity-80 border rounded-2xl p-5"
   >
-    {names.map((name) => <KitImg name={name} />)}
+    {
+      kitTypes.map((kitType) => (
+        <KitImg name={kitType.name} img={kitType.img} />
+      ))
+    }
   </div>
   <hr class="self-center border-b-2 bg-white w-3/4" />
   <div

@@ -1,28 +1,41 @@
 ---
+import dif1 from "../images/dif1.webp";
+import dif2 from "../images/dif2.webp";
+import dif3 from "../images/dif3.webp";
+import dif4 from "../images/dif4.webp";
+import dif5 from "../images/dif5.webp";
+import dif6 from "../images/dif6.webp";
+
 const diferentials = [
   {
     title: "Valores competitivos",
     color: "bg-teal-800",
+    img: dif1,
   },
   {
     title: "Entrega ágil para todo o Brasil",
     color: "bg-teal-700",
+    img: dif2,
   },
   {
     title: "Customizável para sua rotina",
     color: "bg-teal-900",
+    img: dif3,
   },
   {
     title: "P&D para suas demandas",
     color: "bg-slate-400",
+    img: dif4,
   },
   {
     title: "Assessoria para implementação",
     color: "bg-green-500",
+    img: dif5,
   },
   {
     title: "Suporte técnico acessível",
     color: "bg-amber-500",
+    img: dif6,
   },
 ];
 ---
@@ -38,7 +51,7 @@ const diferentials = [
       <div
         class={`flex flex-col p-2 items-center justify-center rounded-lg mb-4 ${diferential.color}`}
       >
-        <img src={`/src/images/dif${idx + 1}.webp`} class="w-16 h-16" />
+        <img src={diferential.img.src} class="w-16 h-16" />
 
         <h3 class="text-center text-xl font-bold mb-4 text-white">
           {diferential.title}
