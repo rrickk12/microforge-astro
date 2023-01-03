@@ -21,10 +21,16 @@ const description = renderRichText(blok.description);
           <input type="hidden" name="name" value={blok.name} />
           <input type="hidden" name="imageSrc" value={blok.image} />
 
-          <label class="text-xl mr-3" for="size">Conformação</label>
-          <select name="size" class="p-2 bg-white">
-            {blok.sizes.map((size) => <option value={size}>{size}</option>)}
-          </select>
+          {
+            blok.sizes && (
+              <label class="text-xl mr-3" for="size">Conformação</label>
+              <select name="size" class="p-2 bg-white">
+                {blok.sizes.map((size) => (
+                  <option value={size}>{size}</option>
+                ))}
+              </select>
+            )
+          }
         </div>
         <div class="my-5">
           <label class="text-xl" for="quantity">Quantidade:</label>

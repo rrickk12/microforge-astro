@@ -1,0 +1,52 @@
+---
+const partners = [
+  {
+    name: "FoxES",
+    logo: "src/images/partners/foxes.webp",
+    link: "https://foxeslaboratorios.com/",
+  },
+  {
+    name: "Biovent",
+    logo: "src/images/partners/biovent.webp",
+    link: "https://biovent.com.br/",
+  },
+  {
+    name: "Ecomol",
+    logo: "src/images/partners/ecomol.webp",
+    link: "https://ecomolconsultoria.com.br/",
+  },
+  {
+    name: "Unicamp",
+    logo: "src/images/partners/unicamp.webp",
+    link: "https://www.unicamp.br/unicamp/",
+  },
+  {
+    name: "Unesp",
+    logo: "src/images/partners/unesp.webp",
+    link: "https://www2.unesp.br/",
+  },
+  {
+    name: "LGE",
+    logo: "src/images/partners/lge.webp",
+    link: "https://www.lge.ibi.unicamp.br/",
+  },
+];
+---
+
+<h2 class="text-2xl text-teal-900 font-bold text-center mb-5">
+  Nossos parceiros
+</h2>
+<div class="flex overflow-x-scroll w-3/4 mx-auto p-2 gap-12">
+  {
+    partners.map((partner) => (
+      <a
+        class="flex-shrink-0"
+        href={partner.link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <img src={partner.logo} alt={partner.name} class="h-40" />
+      </a>
+    ))
+  }
+</div>

@@ -46,7 +46,12 @@ const productGroups = productGroupData.data.stories.map((story) => {
   };
 });
 
-const sectionColors = ["bg-amber-500", "bg-amber-900", "bg-teal-700"];
+const sectionColors = [
+  "bg-amber-500",
+  "bg-amber-900",
+  "bg-teal-700",
+  "bg-teal-500",
+];
 ---
 
 <Layout title="Microforge - O futuro da Biologia Molecular passa por aqui!">
@@ -71,16 +76,18 @@ const sectionColors = ["bg-amber-500", "bg-amber-900", "bg-teal-700"];
         </div>
         <div class="flex flex-col items-center gap-2">
           <h3 class="text-teal-900 text-xl">Acessórios</h3>
-          <a class="text-teal-900 hover:text-teal-800" href="#rack-section"
-            >Racks Magnéticas</a
+          <a
+            class="text-teal-900 hover:text-teal-800"
+            href="#acessorios-section">Racks Magnéticas</a
           >
-          <a class="text-teal-900 hover:text-teal-800" href="#plastic-section"
-            >Plásticos</a
+          <a
+            class="text-teal-900 hover:text-teal-800"
+            href="#acessorios-section">Plásticos</a
           >
         </div>
         <div class="flex flex-col items-center gap-2">
           <h3 class="text-teal-900 text-xl">Soluções</h3>
-          <a class="text-teal-900 hover:text-teal-800" href="#solution-section"
+          <a class="text-teal-900 hover:text-teal-800" href="#solucoes-section"
             >Soluções</a
           >
         </div>
