@@ -1,3 +1,7 @@
+---
+import MailingSendinblue from "./MailingSendinblue.astro";
+---
+
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
@@ -6,4 +10,78 @@
   referrerPolicy="no-referrer"
 />
 
-<div class="bg-teal-900 text-white mt-auto">This is footer</div>
+<div
+  class="bg-teal-900 text-white mt-auto grid md:grid-cols-2 py-8 md:pl-20 lg:pl-auto"
+>
+  <div class="flex flex-col gap-10">
+    <div class="flex items-center gap-4">
+      <i class="fa-sharp fa-solid fa-location-dot p-2 rounded-full bg-teal-500"
+      ></i>
+      <p>
+        Av Prefeito José Lozano Araújo 1136B
+        <br />Jardim Ypê, Paulínia, Sp, CEP 13140-558
+      </p>
+    </div>
+    <div class="flex items-center gap-4">
+      <i class="fa-brands fa-whatsapp p-2 rounded-full bg-teal-500"></i>
+      <p>(19) 99945-3544</p>
+    </div>
+    <div class="flex items-center gap-4">
+      <i class="fa-solid fa-phone p-2 rounded-full bg-teal-500"></i>
+      <p>(19) 3844-3051</p>
+    </div>
+    <div class="flex gap-2 mt-5 md:mt-0">
+      <a href="https://www.facebook.com/100068091380187/" target="_blank"
+        ><i
+          class="fa-brands fa-facebook bg-teal-700 rounded-full text-white text-2xl p-2 hover:opacity-80"
+        ></i>
+      </a>
+      <a href="https://www.instagram.com/micro.forge/" target="_blank"
+        ><i
+          class="fa-brands fa-instagram bg-teal-700 rounded-full text-white text-2xl p-2 hover:opacity-80"
+        ></i>
+      </a>
+      <a href="https://www.linkedin.com/company/microforge/" target="_blank"
+        ><i
+          class="fa-brands fa-linkedin bg-teal-700 rounded-full text-white text-2xl p-2 hover:opacity-80"
+        ></i>
+      </a>
+      <a href="mailto:comercial@micro-forge.com" target="_blank"
+        ><i
+          class="fa-solid fa-envelope bg-teal-700 rounded-full text-white text-2xl p-2 hover:opacity-80"
+        ></i>
+      </a>
+    </div>
+  </div>
+  <div class="flex flex-col gap-2">
+    <h2>Páginas</h2>
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/sobre">sobre</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/produtos">produtos</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/pd">p&d</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/blog">blog</a
+    >
+    <a
+      class="border-b-2 border-b-transparent hover:border-b-teal-900"
+      href="/contato">contato</a
+    >
+    <iframe
+      width="540"
+      height="400"
+      src="https://f0546eaa.sibforms.com/serve/MUIEAAQlf1X4sO4RWZmgYs05QNIrulbnhAkStQb1m0bjfDY5gpXPRjOAYCfqu7hz4jXpL5xlQW_nVvjZr_6SV38_2KvZN8LVPnTOtnKf_L6qGaL9ILtUABwstHE_SE27RdrTUVG4UmB_cq5mKO_J8qSRubenUHHiGxlTeT_4m34S2riQ8T6Nk5x9oLLAWf69JtaSdCmnFAG71kE4"
+      frameborder="0"
+      scrolling="auto"
+      allowfullscreen
+      style="display: block;"></iframe>
+  </div>
+</div>
