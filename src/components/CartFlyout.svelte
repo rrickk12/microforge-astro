@@ -7,7 +7,7 @@
   export let institution = "";
   export let email = "";
 
-  function submitQuote(e) {
+  function getQuoteData(e) {
     const formData = new FormData(e.target);
     let data = {};
     for (let field of formData) {
@@ -15,7 +15,18 @@
       data[key] = value;
     }
     data = { ...data, products: cartItems.get() };
-    console.log(data);
+    return data;
+  }
+
+  function submitQuote(e) {
+    const data = getQuoteData(e);
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(data).toString(),
+    })
+      .then(() => console.log("Form successfully submitted"))
+      .catch((error) => alert(error));
   }
 </script>
 
