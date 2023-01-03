@@ -1,11 +1,81 @@
 ---
+import Motivation from "../components/Motivation.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Sobre">
-  <main>
+  <main class="lg:mx-28">
     <div class="p-8">
       <h2 class="text-3xl font-bold text-teal-900 mb-10">Nossa motivação</h2>
+      <div class="grid md:grid-cols-2 gap-10 mb-10">
+        <Motivation
+          color="border-amber-800"
+          icon="fa-solid fa-dollar-sign"
+          title="Preço"
+          description="Sabe quando você está realizando um ensaio e pensa que poderia ser mais rápido se existisse um kit? Você pesquisa na internet e descobre que ele existe! Porém, não existe no Brasil. Ou até tem, mas é caro demais, e convencer seu orientador de comprá-lo seria quase impossível"
+        />
+        <Motivation
+          color="border-teal-900"
+          icon="fa-regular fa-clock"
+          title="Prazos longos"
+          description="Imagine aquele produto que você comprou, esperou por meses para iniciar seus experimentos e deveria chegar hoje. Mas você foi avisado, justo hoje, após planejar todo seu experimento e reservar os equipamentos no laboratório para uso, de que ele vai atrasar por no mínimo mais um mês."
+        />
+        <Motivation
+          color="border-green-900"
+          icon="fa-solid fa-truck"
+          title="Dependência de importação"
+          description="Você entra no site do fabricante e depois de algum tempo procurando, finalmente encontra o produto que tanto precisa. Ao clicar para saber o preço, que precisa pedir um orçamento e é necessário deixar um caminhão de dados pessoais apenas para ter essa informação. Algumas semanas depois, você finalmente recebe o tão esperado orçamento. Porém o prazo de entrega é longo demais e o preço caro devido à necessidade de importação"
+        />
+        <Motivation
+          color="border-blue-900"
+          icon="fa-solid fa-comments"
+          title="Falta de apoio a projetos"
+          description="Escrevendo seu projeto de pesquisa, você descreve minuciosamente os detalhes metodológicos, alguns deles até fora da sua área original de atuação, mas você entende benefícios que virão da sua proposta utilizando esses novos recursos. A agência de fomento exige que você entregue os preços dos insumos a utilizar, mas você nem faz ideia de quais são ainda, ou de qual marca irá comprar. Seria muito mais fácil se alguém pudesse te auxiliar nisso, né?"
+        />
+        <Motivation
+          color="border-blue-900"
+          icon="fa-solid fa-graduation-cap"
+          title="Falta de conhecimento da área"
+          description="Aquele vendedor chato está te ligando pela milésima vez. Você resolve atender para dizer mais uma vez que não está precisando de nada. Mas dessa vez o produto sendo vendido até que é interessante. Você aceita a amostra teste, mas quando chega, o produto não tem o menor sentido com o propósito que o vendedor lhe disse."
+        />
+      </div>
+      <section>
+        <h2 class="text-3xl font-bold text-teal-900 mb-10">
+          Se você se identificou com algum desses relatos, você precisa conhecer
+          a Microforge!
+        </h2>
+        <p class="mb-10 text-justify">
+          Somos uma empresa nacional, criada por doutorandos e ex-alunos da
+          UNICAMP, e que repetidas vezes nos vimos em situações parecidas com
+          essas. Queremos fazer diferente, e para isso devemos mudar a forma
+          como atualmente se faz a venda dos insumos de laboratório. Queremos
+          resgatar nos pesquisadores cansados e conformados com a “política” da
+          ciência a beleza da experimentação. Queremos tornar a ciência
+          prazerosa para quem faz, encantadora para quem vive e biorreverente.
+          Queremos transparência, parceria e aprender com nossos cientistas,
+          para cada vez mais entregar produtos que realmente façam a diferença
+          no dia a dia para que você consiga focar no que realmente importa nos
+          seus experimentos: <strong>chegar à verdade</strong>.
+        </p>
+      </section>
+      <section>
+        <h2 class="text-3xl font-bold text-teal-900 mb-10">
+          Por que as linhas tem nomes de animais?
+        </h2>
+        <img
+          src="src/images/products/productPageHead.webp"
+          alt="Animais da Microforge"
+          class="lg:w-1/2 mx-auto mb-5"
+        />
+        <p class="text-justify">
+          A ciência no nosso Brasil é de grande qualidade. Porém muitas vezes
+          ignoramos esse fato, ou damos maior valor ao que é estrangeiro e
+          importado, seja produtos, pesquisa ou soluções. Queremos resgatar o
+          encanto pelo nacional, e seguindo nosso propósito biorreverente,
+          batizamos nossas linhas de produtos principais em homenagem aos
+          animais da nossa fauna!
+        </p>
+      </section>
     </div>
   </main>
 </Layout>

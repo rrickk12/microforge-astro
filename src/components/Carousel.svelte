@@ -28,6 +28,7 @@
       imageSrc={"src/images/sabia.webp"}
       imageAlt={"Logo da Linha Sabiá"}
       btnColor={"bg-amber-500"}
+      btnLink={"/produtos/linha-sabia"}
     />
   </SwiperSlide>
   <SwiperSlide
@@ -39,6 +40,7 @@
       imageSrc={"src/images/maracaja.webp"}
       imageAlt={"Logo da Linha Maracajá"}
       btnColor={"bg-stone-500"}
+      btnLink={"/produtos/linha-maracaja"}
     />
   </SwiperSlide>
   <SwiperSlide
@@ -50,6 +52,7 @@
       imageSrc={"src/images/plasticos.webp"}
       imageAlt={"Imagem de plasticaria de laboratório"}
       btnColor={"bg-emerald-900"}
+      btnLink={"/produtos/acessorios"}
     />
   </SwiperSlide>
   <SwiperSlide
@@ -58,9 +61,10 @@
     <SwiperSlideContent
       title={"Conte com nossa equipe para auxiliar seu desenho experimental"}
       description={"Sabemos a dificuldade em adequar novos kits ou protocolos à rotina laboratorial. Nossa equipe formada por doutores, alunos e ex-alunos da UNICAMP e de outras universidades está de prontidão para te ajudar"}
-      imageSrc={"src/images/plasticos.webp"}
+      imageSrc={"src/images/qualificacao.webp"}
       imageAlt={"Imagem de plasticaria de laboratório"}
       btnColor={"bg-emerald-900"}
+      btnLink={"/pd"}
     />
   </SwiperSlide>
 </Swiper>

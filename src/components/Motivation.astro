@@ -1,0 +1,11 @@
+---
+const { color, icon, title, description } = Astro.props;
+---
+
+<div class={`${color} p-2 rounded-lg border`}>
+  <span class="flex gap-2 justify-center"
+    ><i class={`${icon} text-3xl `}></i>
+    <h3 class="text-2xl font-bold mb-5">{title}</h3>
+  </span>
+  <p>{description}</p>
+</div>

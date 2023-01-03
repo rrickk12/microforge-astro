@@ -4,6 +4,7 @@
   export let imageSrc;
   export let imageAlt;
   export let btnColor;
+  export let btnLink;
 </script>
 
 <div
@@ -16,9 +17,11 @@
     <p class="mb-4">
       {description}
     </p>
-    <button
-      class={`${btnColor} rounded-2xl text-white p-3 hover:cursor-pointer hover:opacity-75`}
-      >saiba mais</button
+    <a href={btnLink}
+      ><button
+        class={`${btnColor} rounded-2xl text-white p-3 hover:cursor-pointer hover:opacity-75`}
+        >saiba mais</button
+      ></a
     >
   </div>
   <img
