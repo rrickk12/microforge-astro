@@ -24,10 +24,10 @@ const posts = data.stories.map((story) => {
 <Layout title="Microforge - Confira nosso blog">
   <div class="p-8">
     <h2 class="text-3xl font-bold text-teal-900 mb-10">Confira nossos posts</h2>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
       {
         posts.map((post) => (
-          <div class="border rounded-md hover:border-teal-600 w-10/12">
+          <div class="border rounded-md hover:border-teal-600 md:w-10/12">
             <a href={post.slug}>
               <img
                 class="rounded-md mx-auto mb-5 h-2/4 w-full"
