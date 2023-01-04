@@ -3,15 +3,13 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CartFlyout from "../components/CartFlyout.svelte";
 import { GoogleAnalytics } from "astro-google-analytics";
+
 export interface Props {
   title: string;
   description?: string;
 }
 
 const { title, description } = Astro.props;
-import { inject } from "@vercel/analytics";
-
-inject();
 ---
 
 <!DOCTYPE html>
