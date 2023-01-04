@@ -23,6 +23,18 @@
     if (result.success) {
       status = "Seu email foi enviado com sucesso!";
     }
+
+    const webhookResponse = await fetch(
+      "https://hook.us1.make.com/l9bq0ux45rwfgsvhiavqwdmtyyoecf1n",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: json,
+      }
+    );
   };
 </script>
 
