@@ -26,7 +26,7 @@
 
 <form
   on:submit|preventDefault={handleSubmit}
-  class="bg-slate-50 p-2 flex flex-col w-3/4"
+  class="bg-slate-50 p-2 flex flex-col "
 >
   <input
     type="hidden"
@@ -57,7 +57,7 @@
     required
   />
   <button
-    class="rounded-xl bg-teal-900 self-center hover:bg-amber-500 w-1/2"
+    class="rounded-xl text-white bg-teal-900 self-center hover:bg-amber-500 w-1/2"
     type="submit">INSCREVER</button
   >
   <p class="text-black">{status}</p>
