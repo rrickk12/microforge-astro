@@ -36,6 +36,12 @@
     name="access_key"
     value="ea07ad5e-9913-4bdd-90b5-6f72c98f510f"
   />
+  <input
+    type="hidden"
+    name="subject"
+    value="Nova entrada no formulário de contato"
+  />
+  <input type="hidden" name="from_name" value="Microforge" />
   <input type="checkbox" name="botcheck" id="" style="display: none;" />
   <label class="text-teal-900" for="name">Seu nome*</label>
   <input
