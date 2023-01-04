@@ -7,7 +7,6 @@
     status = "Submitting...";
     const formData = new FormData(data.currentTarget);
     const object = Object.fromEntries(formData);
-    const json = JSON.stringify(object);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -15,12 +14,27 @@
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: json,
+      body: JSON.stringify(object),
     });
     const result = await response.json();
     if (result.success) {
       status = "Seu cadastro foi bem sucedido! Muito obrigado!";
     }
+
+    const webhookResponse = await fetch(
+      "https://hook.us1.make.com/6mq9kb21742o36u12wtjkpfww6n3gavy",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: object.name,
+          email: object.email,
+        }),
+      }
+    );
   };
 </script>
 
@@ -43,7 +57,7 @@
   <input
     class="mb-5 text-black"
     type="text"
-    name="Nome"
+    name="name"
     placeholder="Nome completo"
     bind:value={name}
     required
@@ -51,7 +65,7 @@
   <input
     class="mb-5 text-black"
     type="email"
-    name="E-mail"
+    name="email"
     placeholder="E-mail"
     bind:value={email}
     required
