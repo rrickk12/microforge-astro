@@ -46,6 +46,8 @@
         name="access_key"
         value="ea07ad5e-9913-4bdd-90b5-6f72c98f510f"
       />
+      <input type="hidden" name="subject" value="Novo pedido de cotação" />
+      <input type="hidden" name="from_name" value="Microforge" />
       <input type="checkbox" name="botcheck" id="" style="display: none;" />
       {#if Object.values($cartItems).length}
         <p class="text-center mb-10 text-lg text-teal-900">Seus itens</p>
