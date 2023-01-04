@@ -5,9 +5,10 @@ import CartFlyout from "../components/CartFlyout.svelte";
 import { GoogleAnalytics } from "astro-google-analytics";
 export interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -31,7 +32,7 @@ const { title } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image" href="/cropped-uforge_icon.webp" />
-    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
     <title>{title}</title>
   </head>
   <Header />
