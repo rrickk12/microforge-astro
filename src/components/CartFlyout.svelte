@@ -6,28 +6,28 @@
   export let name = "";
   export let institution = "";
   export let email = "";
+  let status = "";
 
-  function getQuoteData(e) {
-    const formData = new FormData(e.target);
-    let data = {};
-    for (let field of formData) {
-      const [key, value] = field;
-      data[key] = value;
-    }
-    data = { ...data, products: cartItems.get() };
-    return data;
-  }
+  const handleSubmit = async (data) => {
+    status = "Submitting...";
+    const formData = new FormData(data.currentTarget);
+    let object = Object.fromEntries(formData);
+    object = { ...object, products: JSON.stringify(cartItems.get()) };
+    const json = JSON.stringify(object);
 
-  function submitQuote(e) {
-    const data = getQuoteData(e);
-    fetch("/", {
+    const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(data).toString(),
-    })
-      .then(() => console.log("Form successfully submitted"))
-      .catch((error) => alert(error));
-  }
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+    const result = await response.json();
+    if (result.success) {
+      status = "Sua cotação foi enviada com sucesso!";
+    }
+  };
 </script>
 
 {#if $isCartOpen}
@@ -40,7 +40,13 @@
       class="mr-2 rounded-md bg-red-100 mb-5 w-8 self-end "
       on:click={() => isCartOpen.set(false)}>X</button
     >
-    <form on:submit|preventDefault={submitQuote} class="flex flex-col gap-2">
+    <form on:submit|preventDefault={handleSubmit} class="flex flex-col gap-2">
+      <input
+        type="hidden"
+        name="access_key"
+        value="ea07ad5e-9913-4bdd-90b5-6f72c98f510f"
+      />
+      <input type="checkbox" name="botcheck" id="" style="display: none;" />
       {#if Object.values($cartItems).length}
         <p class="text-center mb-10 text-lg text-teal-900">Seus itens</p>
 
@@ -59,6 +65,7 @@
         {/each}
 
         <p class="text-teal-900">Dados para cotação</p>
+        <p>{status}</p>
         <label for="name">Nome</label>
         <input
           required
