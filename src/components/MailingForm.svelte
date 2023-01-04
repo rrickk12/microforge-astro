@@ -22,7 +22,7 @@
     }
 
     const webhookResponse = await fetch(
-      "https://hook.us1.make.com/6mq9kb21742o36u12wtjkpfww6n3gavy",
+      "https://hook.us1.make.com/k2s06wai5231ji5b5ok64towexwkeq7m",
       {
         method: "POST",
         headers: {
@@ -32,6 +32,7 @@
         body: JSON.stringify({
           name: object.name,
           email: object.email,
+          subject: "newsletter",
         }),
       }
     );

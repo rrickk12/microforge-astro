@@ -12,8 +12,8 @@
     status = "Submitting...";
     const formData = new FormData(data.currentTarget);
     let object = Object.fromEntries(formData);
-    object = { ...object, products: JSON.stringify(cartItems.get()) };
-    const json = JSON.stringify(object);
+    const fullObject = { ...object, products: JSON.stringify(cartItems.get()) };
+    const json = JSON.stringify(fullObject);
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -26,7 +26,26 @@
     const result = await response.json();
     if (result.success) {
       status = "Sua cotação foi enviada com sucesso!";
+    } else {
+      status =
+        "Algo deu errado, por favor tente novamente, ou entre em contato por email ou whatsapp com seu pedido";
     }
+
+    const webhookResponse = await fetch(
+      "https://hook.us1.make.com/k2s06wai5231ji5b5ok64towexwkeq7m",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: object.name,
+          email: object.email,
+          subject: "quote",
+        }),
+      }
+    );
   };
 </script>
 
