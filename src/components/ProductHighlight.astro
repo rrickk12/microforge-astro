@@ -16,7 +16,7 @@ const { data } = await storyblokApi.get("cdn/stories", {
 
 const products = data.stories.map((product) => {
   return {
-    name: product.name,
+    name: product.content.name,
     image: product.content.image,
     slug: product.full_slug,
     featured: product.content.featured,

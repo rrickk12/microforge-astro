@@ -14,12 +14,12 @@ const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get("cdn/stories", {
   version: import.meta.env.DEV ? "draft" : "published",
   content_type: "Product",
-  starts_with: `produtos/${currentPathSlug}/`,
+  starts_with: `produtos/${currentPathSlug}`,
 });
 
 const products = data.stories.map((story) => {
   return {
-    name: story.name,
+    name: story.content.name,
     full_slug: story.full_slug,
     slug: story.slug,
     image: story.content.image,
