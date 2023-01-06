@@ -2,9 +2,7 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CartFlyout from "../components/CartFlyout.svelte";
-import { GoogleAnalytics } from "astro-google-analytics";
-import MetaPixel from "../components/MetaPixel.astro";
-import Clarity from "../components/Clarity.astro";
+import GTM from "../components/GTM.astro";
 
 export interface Props {
   title: string;
@@ -17,9 +15,7 @@ const { title, description } = Astro.props;
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
-    <MetaPixel />
-    <Clarity />
-    <GoogleAnalytics id="G-3W5CHVS101" />
+    <GTM />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta
@@ -32,6 +28,15 @@ const { title, description } = Astro.props;
   </head>
 
   <body class="text-gray-700 flex flex-col min-h-screen">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-T5MHTN6"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <Header />
     <CartFlyout client:load />
     <slot />
