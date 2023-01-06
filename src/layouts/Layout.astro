@@ -3,6 +3,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CartFlyout from "../components/CartFlyout.svelte";
 import { GoogleAnalytics } from "astro-google-analytics";
+import MetaPixel from "../components/MetaPixel.astro";
+import Clarity from "../components/Clarity.astro";
 
 export interface Props {
   title: string;
@@ -15,74 +17,23 @@ const { title, description } = Astro.props;
 <!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
   <head>
-    <!-- Meta Pixel Code -->
-    <script>
-      if (!window.location.host.includes("localhost")) {
-        !(function (f, b, e, v, n, t, s) {
-          if (f.fbq) return;
-          n = f.fbq = function () {
-            n.callMethod
-              ? n.callMethod.apply(n, arguments)
-              : n.queue.push(arguments);
-          };
-          if (!f._fbq) f._fbq = n;
-          n.push = n;
-          n.loaded = !0;
-          n.version = "2.0";
-          n.queue = [];
-          t = b.createElement(e);
-          t.async = !0;
-          t.src = v;
-          s = b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t, s);
-        })(
-          window,
-          document,
-          "script",
-          "https://connect.facebook.net/en_US/fbevents.js"
-        );
-        fbq("init", "850748516181575");
-        fbq("track", "PageView");
-      }
-    </script>
-    <noscript></noscript>
-  </head><img
-    height="1"
-    width="1"
-    style="display:none"
-    src="https://www.facebook.com/tr?id=850748516181575&ev=PageView&noscript=1"
-  />
-  <!-- End Meta Pixel Code -->
-  <script type="text/javascript">
-    if (!window.location.host.includes("localhost")) {
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "f9492cqazm");
-    }
-  </script>
-  <GoogleAnalytics id="G-3W5CHVS101" />
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width" />
-  <meta
-    name="facebook-domain-verification"
-    content="ynigf6melo8nt2mlz4rmriiv2sjbkh"
-  />
-  <link rel="icon" type="image" href="/cropped-uforge_icon.webp" />
-  {description && <meta name="description" content={description} />}
-  <title>{title}</title>
+    <MetaPixel />
+    <Clarity />
+    <GoogleAnalytics id="G-3W5CHVS101" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="facebook-domain-verification"
+      content="ynigf6melo8nt2mlz4rmriiv2sjbkh"
+    />
+    <link rel="icon" type="image" href="/cropped-uforge_icon.webp" />
+    {description && <meta name="description" content={description} />}
+    <title>{title}</title>
 
-  <Header />
+    <Header />
 
-  <CartFlyout client:load />
-  <slot />
-  <Footer />
+    <CartFlyout client:load />
+    <slot />
+    <Footer />
+  </head>
 </html>
