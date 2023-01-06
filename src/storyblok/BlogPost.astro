@@ -17,11 +17,11 @@ const content = renderRichText(blok.content);
     alt=""
   />
   <div
-    class="text-lg text-justify mx-10 md:mx-auto prose prose-p:mb-8 prose-h2:mb-4 prose-h2:text-teal-900 prose-img:max-h-96 prose-img:mx-auto prose-img:mb-0 prose-h5:text-sm prose-h5:text-center"
+    class="text-lg text-justify mx-10 md:mx-auto prose prose-p:mb-8 prose-h2:mb-4 prose-h2:text-teal-900 prose-img:max-h-96 prose-img:mx-auto prose-img:mb-0 prose-h5:text-sm prose-h5:text-center prose-a:text-teal-900 hover:prose-a:text-teal-800"
     set:html={content}
   >
   </div>
 </article>
-<div class="flex justify-center my-5">
+<div class="flex justify-center my-5 mx-5">
   <MailingForm client:visible />
 </div>

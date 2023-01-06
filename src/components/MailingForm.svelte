@@ -41,7 +41,7 @@
 
 <form
   on:submit|preventDefault={handleSubmit}
-  class="bg-slate-50 p-2 flex flex-col "
+  class="bg-slate-50 p-5 flex flex-col "
 >
   <input
     type="hidden"
@@ -56,7 +56,7 @@
     primeira mão.
   </p>
   <input
-    class="mb-5 text-black"
+    class="mb-5 text-black border rounded-md"
     type="text"
     name="name"
     placeholder="Nome completo"
@@ -64,7 +64,7 @@
     required
   />
   <input
-    class="mb-5 text-black"
+    class="mb-5 text-black border rounded-md"
     type="email"
     name="email"
     placeholder="E-mail"
