@@ -21,7 +21,7 @@ const content = renderRichText(blok.content);
     set:html={content}
   >
   </div>
-  <div class="mx-10 md:mx-24 lg:mx-96 border p-5">
+  <div class="md:w-1/2 mt-20 mx-10 md:mx-auto border p-5">
     <div class="mb-5 flex gap-5">
       <img
         src={blok.author.content.picture}
@@ -33,7 +33,7 @@ const content = renderRichText(blok.content);
       </p>
     </div>
     <div
-      class="prose prose-p:text-justify prose-p:text-sm"
+      class="text-justify text-sm"
       set:html={renderRichText(blok.author.content.bio)}
     >
     </div>
