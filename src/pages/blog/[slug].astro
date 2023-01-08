@@ -8,6 +8,7 @@ export async function getStaticPaths() {
   const { data } = await storyblokApi.get("cdn/stories", {
     version: import.meta.env.DEV ? "draft" : "published",
     content_type: "blogPost",
+    resolve_relations: "blogPost.author",
   });
   const pages = data.stories.map((story) => {
     return {

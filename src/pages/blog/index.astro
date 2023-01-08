@@ -7,6 +7,7 @@ const { data } = await storyblokApi.get("cdn/stories", {
   version: import.meta.env.DEV ? "draft" : "published",
   content_type: "blogPost",
   sort_by: "first_published_at:desc",
+  resolve_relations: "blogPost.author",
 });
 const posts = data.stories.map((story) => {
   return {
@@ -17,6 +18,7 @@ const posts = data.stories.map((story) => {
     startImage: story.content.startImage,
     excerpt: renderRichText(story.content.content).slice(0, 80),
     slug: story.full_slug,
+    author: story.content.author,
   };
 });
 ---
@@ -35,12 +37,19 @@ const posts = data.stories.map((story) => {
                 alt=""
               />
             </a>
-            <h3 class="text-lg text-teal-900 p-2">{post.title}</h3>
+            <h3 class="text-lg text-teal-900 px-2">{post.title}</h3>
             <div
-              class="prose-p:p-2"
+              class="prose-p:px-2 text-sm mb-5"
               set:html={`${post.excerpt}...<a class='text-teal-900 hover:text-teal-800' href=${post.slug}>saiba mais</a>`}
             />
-            <p class="p-2 text-xs text-right">{post.date}</p>
+            <div class="flex justify-between items-center px-2">
+              <img
+                class="w-8 rounded-full"
+                src={post.author.content.picture}
+                alt=""
+              />
+              <p class="text-xs text-right">{post.date}</p>
+            </div>
           </div>
         ))
       }

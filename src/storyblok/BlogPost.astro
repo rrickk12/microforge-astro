@@ -21,6 +21,23 @@ const content = renderRichText(blok.content);
     set:html={content}
   >
   </div>
+  <div class="mx-10 md:mx-24 lg:mx-96 border p-5">
+    <div class="mb-5 flex gap-5">
+      <img
+        src={blok.author.content.picture}
+        class="w-20 rounded-full self-start"
+        alt={blok.author.content.name}
+      />
+      <p class="self-center text-teal-900 text-lg">
+        {blok.author.content.name}
+      </p>
+    </div>
+    <div
+      class="prose prose-p:text-justify prose-p:text-sm"
+      set:html={renderRichText(blok.author.content.bio)}
+    >
+    </div>
+  </div>
 </article>
 <div class="flex justify-center my-5 mx-5">
   <MailingForm client:visible />
