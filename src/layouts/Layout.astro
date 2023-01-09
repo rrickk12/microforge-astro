@@ -39,9 +39,9 @@ const { title, description } = Astro.props;
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
     <Header />
-    <CartFlyout client:load />
+    <CartFlyout client:idle />
     <slot />
-    <CookieConsent client:load />
+    <CookieConsent client:only="svelte" />
     <Footer />
   </body>
 </html>
