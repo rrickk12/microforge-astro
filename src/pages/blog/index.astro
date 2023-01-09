@@ -29,20 +29,22 @@ const posts = data.stories.map((story) => {
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
       {
         posts.map((post) => (
-          <div class="border rounded-md hover:border-teal-600 md:w-10/12">
+          <div class="border rounded-md hover:border-teal-600 flex flex-col justify-between">
             <a href={post.slug}>
               <img
-                class="rounded-md mx-auto mb-5 h-2/4 w-full"
+                class="rounded-md mb-5 h-48 w-full"
                 src={post.startImage}
                 alt=""
               />
             </a>
-            <h3 class="text-lg text-teal-900 px-2">{post.title}</h3>
+            <a href={post.slug}>
+              <h3 class="text-lg text-teal-900 px-2">{post.title}</h3>
+            </a>
             <div
               class="prose-p:px-2 text-sm mb-5"
               set:html={`${post.excerpt}...<a class='text-teal-900 hover:text-teal-800' href=${post.slug}>saiba mais</a>`}
             />
-            <div class="flex justify-between items-center px-2">
+            <div class="flex justify-between items-center p-2">
               <img
                 class="w-8 rounded-full"
                 src={post.author.content.picture}
