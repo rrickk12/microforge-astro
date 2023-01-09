@@ -3,6 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import CartFlyout from "../components/CartFlyout.svelte";
 import GTM from "../components/GTM.astro";
+import CookieConsent from "../components/cookieConsent.svelte";
 
 export interface Props {
   title: string;
@@ -40,6 +41,7 @@ const { title, description } = Astro.props;
     <Header />
     <CartFlyout client:load />
     <slot />
+    <CookieConsent client:load />
     <Footer />
   </body>
 </html>
