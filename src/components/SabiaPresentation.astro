@@ -9,13 +9,13 @@ import virus from "../images/sample_drawing/virus.webp";
 import plantas from "../images/sample_drawing/plantas.webp";
 
 const kitTypes = [
-  { name: "tecidos", img: tecidos },
-  { name: "sangue", img: sangue },
-  { name: "saliva", img: saliva },
-  { name: "semen", img: semen },
-  { name: "microrganismos", img: microrganismos },
-  { name: "virus", img: virus },
-  { name: "plantas", img: plantas },
+  { name: "tecidos", img: tecidos, link: "sabia-tecidos" },
+  { name: "sangue", img: sangue, link: "sabia-sangue" },
+  { name: "saliva", img: saliva, link: "sabia-viral" },
+  { name: "semen", img: semen, link: "sabia-semen" },
+  { name: "microrganismos", img: microrganismos, link: "sabia-microrganismos" },
+  { name: "viral", img: virus, link: "sabia-viral" },
+  { name: "plantas", img: plantas, link: "sabia-plantas" },
 ];
 ---
 
@@ -31,7 +31,9 @@ const kitTypes = [
   >
     {
       kitTypes.map((kitType) => (
-        <KitImg name={kitType.name} img={kitType.img} />
+        <a href={`/produtos/linha-sabia/${kitType.link}`}>
+          <KitImg name={kitType.name} img={kitType.img} />
+        </a>
       ))
     }
   </div>
