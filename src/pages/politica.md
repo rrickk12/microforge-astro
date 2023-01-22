@@ -49,7 +49,7 @@ Os dados pessoais do usuário e do visitante coletados e armazenados pela plataf
 
 O tratamento de dados pessoais para finalidades não previstas nesta Política de Privacidade somente ocorrerá mediante comunicação prévia ao usuário, de modo que os direito e obrigações aqui previstos permaneçam aplicáveis.
 
-4. QUAIS SÃO SEUS DIREITOS?
+## 4. QUAIS SÃO SEUS DIREITOS?
    A Micro Forge assegura a seus usuários/clientes seus direitos de titular previstos no art. 18 da Lei Geral de Proteção de Dados. Dessa forma, você pode, de maneira gratuita e a qualquer tempo:
 
 - Confirmar a existência de tratamento de dados, de maneira simplificada ou em formato claro e completo;
