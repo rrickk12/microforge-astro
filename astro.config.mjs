@@ -5,22 +5,20 @@ import storyblok from "@storyblok/astro";
 import { loadEnv } from "vite";
 
 // https://astro.build/config
-import image from "@astrojs/image";
-
-// https://astro.build/config
 import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 import tailwind from "@astrojs/tailwind";
-
+import image from "@astrojs/image";
 const env = loadEnv("", process.cwd(), "STORYBLOK");
 
 // https://astro.build/config
+
 export default defineConfig({
   integrations: [
-    image(),
     svelte(),
     tailwind(),
+    image(),
     storyblok({
       accessToken: env.STORYBLOK_TOKEN,
       components: {
