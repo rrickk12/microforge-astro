@@ -58,32 +58,32 @@ const sectionColors = [
 
 <Layout title="Microforge - Confira nossos produtos">
   <img src={animalsImage.src} alt="" />
-  <div class="p-8 flex flex-col items-center">
-    <h2 class="text-3xl text-center font-bold text-teal-900 mb-10">
+  <div class="flex flex-col items-center p-8">
+    <h2 class="mb-10 text-center text-3xl font-bold text-teal-900">
       Catálogo de Produtos
     </h2>
     <div class="w-3/4">
-      <hr class="mx-auto border-teal-800 mb-10" />
-      <div class="grid md:grid-cols-3 gap-2">
+      <hr class="mx-auto mb-10 border-teal-800" />
+      <div class="grid gap-2 md:grid-cols-3">
         <div class="flex flex-col items-center gap-2">
-          <h3 class="text-teal-900 text-xl text-center">
+          <h3 class="text-center text-xl text-teal-900">
             Extração de DNA e RNA
           </h3>
           <a
-            class="text-teal-900 text-center hover:text-teal-800"
+            class="text-center text-teal-900 hover:text-teal-800"
             href="#linha-sabia-section">Linha Sabiá (Beads Magnéticas)</a
           >
           <a
-            class="text-teal-900 text-center hover:text-teal-800"
+            class="text-center text-teal-900 hover:text-teal-800"
             href="#linha-maracaja-section">Linha Maracajá (Lise Rápida)</a
           >
           <a
-            class="text-teal-900 text-center hover:text-teal-800"
+            class="text-center text-teal-900 hover:text-teal-800"
             href="#linha-saira-section">Linha Saíra (Centrifugação)</a
           >
         </div>
         <div class="flex flex-col items-center gap-2">
-          <h3 class="text-teal-900 text-xl">Acessórios</h3>
+          <h3 class="text-xl text-teal-900">Acessórios</h3>
           <a
             class="text-teal-900 hover:text-teal-800"
             href="#acessorios-section">Racks Magnéticas</a
@@ -94,13 +94,13 @@ const sectionColors = [
           >
         </div>
         <div class="flex flex-col items-center gap-2">
-          <h3 class="text-teal-900 text-xl">Soluções</h3>
+          <h3 class="text-xl text-teal-900">Soluções</h3>
           <a class="text-teal-900 hover:text-teal-800" href="#solucoes-section"
             >Soluções</a
           >
         </div>
       </div>
-      <hr class="mx-auto border-teal-800 mt-10" />
+      <hr class="mx-auto mt-10 border-teal-800" />
       {
         productGroups.map((productGroup, idx) => (
           <ProductGroupComponent

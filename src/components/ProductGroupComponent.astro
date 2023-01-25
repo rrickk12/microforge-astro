@@ -17,13 +17,12 @@ const {
   >
     {productGroupTitle}
   </h2>
-  <h3 class="text-teal-900 font-bold text-lg">
+  <h3 class="text-lg font-bold text-teal-900">
     {productGroupsubTitle}
   </h3>
   <div
-    class="mb-10 prose prose-p:text-justify"
+    class="prose mb-10 prose-p:text-justify"
     set:html={`${productGroupDescriptionExcerpt}...<a class='text-teal-900 hover:text-teal-800' href='/produtos/${productGroupSlug}'>saiba mais</a>`}
-  >
-  </div>
+  />
   <ProductShowcase products={products} productGroupSlug="linha-sabia" />
 </div>

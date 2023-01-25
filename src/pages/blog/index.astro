@@ -25,32 +25,32 @@ const posts = data.stories.map((story) => {
 
 <Layout title="Microforge - Confira nosso blog">
   <div class="p-8">
-    <h2 class="text-3xl font-bold text-teal-900 mb-10">Confira nossos posts</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+    <h2 class="mb-10 text-3xl font-bold text-teal-900">Confira nossos posts</h2>
+    <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
       {
         posts.map((post) => (
-          <div class="border rounded-md hover:border-teal-600 flex flex-col justify-between">
+          <div class="flex flex-col justify-between rounded-md border hover:border-teal-600">
             <a href={post.slug}>
               <img
-                class="rounded-md mb-5 h-48 w-full"
+                class="mb-5 h-48 w-full rounded-md"
                 src={post.startImage}
                 alt=""
               />
             </a>
             <a href={post.slug}>
-              <h3 class="text-lg text-teal-900 px-2">{post.title}</h3>
+              <h3 class="px-2 text-lg text-teal-900">{post.title}</h3>
             </a>
             <div
-              class="prose-p:px-2 text-sm mb-5"
+              class="mb-5 text-sm prose-p:px-2"
               set:html={`${post.excerpt}...<a class='text-teal-900 hover:text-teal-800' href=${post.slug}>saiba mais</a>`}
             />
-            <div class="flex justify-between items-center p-2">
+            <div class="flex items-center justify-between p-2">
               <img
                 class="w-8 rounded-full"
                 src={post.author.content.picture}
                 alt=""
               />
-              <p class="text-xs text-right">{post.date}</p>
+              <p class="text-right text-xs">{post.date}</p>
             </div>
           </div>
         ))

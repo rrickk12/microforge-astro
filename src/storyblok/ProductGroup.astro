@@ -41,38 +41,37 @@ products.sort((a, b) => {
 ---
 
 <article {...storyblokEditable(blok)}>
-  <h1 class="text-3xl text-center pt-10 pb-5 text-teal-900">
+  <h1 class="pt-10 pb-5 text-center text-3xl text-teal-900">
     {blok.title}
   </h1>
-  <hr class="mb-5 w-1/2 m-auto" />
+  <hr class="m-auto mb-5 w-1/2" />
   <div class="">
-    <img src={blok.image} class="lg:w-1/4 md:ml-auto md:mr-20" alt="" />
+    <img src={blok.image} class="md:ml-auto md:mr-20 lg:w-1/4" alt="" />
   </div>
   <div
-    class="mx-5 md:mx-auto prose prose-p:text-justify mb-10"
+    class="prose mx-5 mb-10 prose-p:text-justify md:mx-auto"
     set:html={description}
-  >
-  </div>
-  <h3 class="text-2xl text-teal-900 font-bold text-center mb-10">
+  />
+  <h3 class="mb-10 text-center text-2xl font-bold text-teal-900">
     Confira nossos produtos
   </h3>
-  <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mx-5 md:mx-32 mb-5">
+  <div class="mx-5 mb-5 grid grid-cols-2 gap-4 md:mx-32 lg:grid-cols-4">
     {
       products.map((product) => (
-        <div class="border rounded-md hover:border-teal-600  hover:scale-105 transition-all duration-300 p-2 ">
+        <div class="rounded-md border p-2  transition-all duration-300 hover:scale-105 hover:border-teal-600 ">
           <a
             class="flex flex-col items-center justify-center"
             href={`/produtos/${currentPathSlug}/${product.slug}`}
           >
-            <p class="text-lg text-teal-900 text-center">{product.name}</p>
+            <p class="text-center text-lg text-teal-900">{product.name}</p>
             <img
               src={product.image}
-              class="max-w-1/2 hover:opacity-75 mb-5"
+              class="max-w-1/2 mb-5 hover:opacity-75"
               alt={product.name}
             />
             {product.featured && (
-              <p class="self-end text-teal-500 p-2">
-                <span class="border rounded-lg p-1  border-teal-500">
+              <p class="self-end p-2 text-teal-500">
+                <span class="rounded-lg border border-teal-500  p-1">
                   Destaque
                 </span>
               </p>

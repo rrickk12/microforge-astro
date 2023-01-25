@@ -20,14 +20,14 @@ const kitTypes = [
 ---
 
 <div
-  class="bg-[url('/src/images/fundo_kits.webp')] flex flex-col bg-fixed bg-center bg-cover bg-no-repeat p-2 mb-12"
+  class="mb-12 flex flex-col bg-[url('/src/images/fundo_kits.webp')] bg-cover bg-fixed bg-center bg-no-repeat p-2"
 >
-  <h2 class="p-6 text-center text-white text-2xl text-bold">
+  <h2 class="text-bold p-6 text-center text-2xl text-white">
     A Linha Sabiá tem kits de extração por beads magnéticas para sua amostra
   </h2>
-  <hr class="self-center border-b-2 bg-white w-3/4" />
+  <hr class="w-3/4 self-center border-b-2 bg-white" />
   <div
-    class="grid gap-4 grid-cols-[repeat(auto-fit,minmax(min(100%,_15ch),_1fr))] w-3/4 my-10 mx-auto items-center justify-center bg-slate-50 opacity-80 border rounded-2xl p-5"
+    class="my-10 mx-auto grid w-3/4 grid-cols-[repeat(auto-fit,minmax(min(100%,_15ch),_1fr))] items-center justify-center gap-4 rounded-2xl border bg-slate-50 p-5 opacity-80"
   >
     {
       kitTypes.map((kitType) => (
@@ -37,9 +37,9 @@ const kitTypes = [
       ))
     }
   </div>
-  <hr class="self-center border-b-2 bg-white w-3/4" />
+  <hr class="w-3/4 self-center border-b-2 bg-white" />
   <div
-    class="button my-10 mx-auto bg-amber-500 rounded-2xl text-white hover:cursor-pointer hover:opacity-90 p-3"
+    class="button my-10 mx-auto rounded-2xl bg-amber-500 p-3 text-white hover:cursor-pointer hover:opacity-90"
   >
     <a href="/produtos/linha-sabia"><button>saiba mais</button></a>
   </div>

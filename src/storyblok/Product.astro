@@ -3,17 +3,20 @@ import { storyblokEditable, renderRichText } from "@storyblok/astro";
 import AddToCartForm from "../components/AddToCartForm.svelte";
 const { blok } = Astro.props;
 const description = renderRichText(blok.description);
-
 ---
 
 <article {...storyblokEditable(blok)}>
-  <h1 class="text-3xl text-center pt-10 pb-5 text-teal-900">
+  <h1 class="pt-10 pb-5 text-center text-3xl text-teal-900">
     {blok.name}
   </h1>
-  <hr class="mb-5 w-1/2 m-auto" />
-  <div class="grid md:grid-cols-2 mb-24">
+  <hr class="m-auto mb-5 w-1/2" />
+  <div class="mb-24 grid md:grid-cols-2">
     <div>
-      <img src={blok.image} class="w-1/2 mx-auto lg:w-1/4 md:ml-auto md:mr-20" alt={blok.name} />
+      <img
+        src={blok.image}
+        class="mx-auto w-1/2 md:ml-auto md:mr-20 lg:w-1/4"
+        alt={blok.name}
+      />
     </div>
 
     <div class="flex flex-col items-center justify-center md:items-start">
@@ -24,12 +27,16 @@ const description = renderRichText(blok.description);
 
           {
             blok.sizes && (
-              <label class="text-xl mr-3" for="size">Conformação</label>
-              <select name="size" class="p-2 bg-white">
-                {blok.sizes.map((size) => (
-                  <option value={size}>{size}</option>
-                ))}
-              </select>
+              <>
+                <label class="mr-3 text-xl" for="size">
+                  Conformação
+                </label>
+                <select name="size" class="bg-white p-2">
+                  {blok.sizes.map((size) => (
+                    <option value={size}>{size}</option>
+                  ))}
+                </select>
+              </>
             )
           }
         </div>
@@ -45,13 +52,13 @@ const description = renderRichText(blok.description);
           />
         </div>
         <button
-          class="bg-teal-900 hover:bg-amber-400 text-white p-2 rounded-xl"
+          class="rounded-xl bg-teal-900 p-2 text-white hover:bg-amber-400"
           type="submit">Adicionar à cotação</button
         >
       </AddToCartForm>
     </div>
   </div>
-  <div class="text-center mb-10">
+  <div class="mb-10 text-center">
     Precisa de ajuda?
     <a
       target="_blank"
@@ -62,33 +69,36 @@ const description = renderRichText(blok.description);
   </div>
 
   <div
-    class="text-lg text-justify mx-10 md:mx-auto prose prose-p:mb-8 prose-h3:mb-4 prose-h3:text-teal-900"
+    class="prose mx-10 text-justify text-lg prose-h3:mb-4 prose-h3:text-teal-900 prose-p:mb-8 md:mx-auto"
     set:html={description}
-  >
-  </div>
-  {blok.related_products.length > 0 && 
-    <h2 class="text-center text-xl mb-8 text-teal-900">Produtos relacionados</h2>
-    <div class="grid place-items-center mb-8 grid-flow-col auto-cols-fr gap-4">
+  />
   {
-    blok.related_products.map((product) => (
-      <a
-        class="border rounded-md hover:border-teal-600 w-10/12 hover:scale-105 transition-all duration-300"
-        href={`/${product.full_slug}`}
-      >
-        <h3 class="text-lg text-teal-900 p-2 text-center">{product.name}</h3>
+    blok.related_products.length > 0 && (
+      <>
+        <h2 class="mb-8 text-center text-xl text-teal-900">
+          Produtos relacionados
+        </h2>
+        <div class="mb-8 grid auto-cols-fr grid-flow-col place-items-center gap-4">
+          {blok.related_products.map((product) => (
+            <a
+              class="w-10/12 rounded-md border transition-all duration-300 hover:scale-105 hover:border-teal-600"
+              href={`/${product.full_slug}`}
+            >
+              <h3 class="p-2 text-center text-lg text-teal-900">
+                {product.name}
+              </h3>
 
-        <img
-          class="rounded-md mx-auto mb-5 md:w-1/2 lg:w-1/4 hover:opacity-75"
-          src={product.content.image}
-          alt={product.name}
-        />
-        
-      </a>
-    ))
+              <img
+                class="mx-auto mb-5 rounded-md hover:opacity-75 md:w-1/2 lg:w-1/4"
+                src={product.content.image}
+                alt={product.name}
+              />
+            </a>
+          ))}
+        </div>
+      </>
+    )
   }
-</div>
-}
-  
 </article>
 
 <script>

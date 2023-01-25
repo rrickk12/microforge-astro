@@ -26,21 +26,21 @@ const purposes = [
 ---
 
 <div
-  class="bg-[url('/src/images/propositos_fundo.webp')] p-5 md:p-20 bg-no-repeat bg-cover mb-5"
+  class="mb-5 bg-[url('/src/images/propositos_fundo.webp')] bg-cover bg-no-repeat p-5 md:p-20"
 >
-  <h2 class="text-2xl text-teal-900 font-bold text-center md:text-start">
+  <h2 class="text-center text-2xl font-bold text-teal-900 md:text-start">
     Nossos propósitos
   </h2>
-  <p class="mb-10 text-xl text-center md:text-left">
+  <p class="mb-10 text-center text-xl md:text-left">
     Tornar a ciência prazerosa para quem faz, encantadora para quem vive e
     biorreverente
   </p>
-  <div class="grid md:grid-cols-3 gap-4 mb-5">
+  <div class="mb-5 grid gap-4 md:grid-cols-3">
     {
       purposes.map((purpose, idx) => (
-        <div class="bg-slate-200 opacity-90 flex flex-col p-2 rounded-lg shadow-2xl border-white border-4 max-w-sm">
-          <img class="rounded-t-lg mb-5" src={purpose.image.src} alt="" />
-          <h3 class="text-teal-900 text-lg text-center mb-2">
+        <div class="flex max-w-sm flex-col rounded-lg border-4 border-white bg-slate-200 p-2 opacity-90 shadow-2xl">
+          <img class="mb-5 rounded-t-lg" src={purpose.image.src} alt="" />
+          <h3 class="mb-2 text-center text-lg text-teal-900">
             {purpose.title}
           </h3>
           <p>{purpose.description}</p>

@@ -52,13 +52,13 @@ const teamMembers = [
 ];
 ---
 
-<h2 class="text-2xl text-teal-900 font-bold text-center mb-5">
+<h2 class="mb-5 text-center text-2xl font-bold text-teal-900">
   Conheça nossa equipe
 </h2>
-<div class="grid md:grid-cols-2 lg:grid-cols-3 mx-2 md:mx-20 gap-8 mb-10">
+<div class="mx-2 mb-10 grid gap-8 md:mx-20 md:grid-cols-2 lg:grid-cols-3">
   {
     teamMembers.map((teamMember) => (
-      <div class="border rounded-lg flex p-2 gap-4">
+      <div class="flex gap-4 rounded-lg border p-2">
         <img
           class="w-28 rounded-full"
           src={teamMember.image.src}
@@ -68,11 +68,11 @@ const teamMembers = [
           <h3 class="text-lg text-teal-900">{teamMember.name}</h3>
           <p class="mb-2">{teamMember.role}</p>
           <a target="_blank" href={teamMember.linkedin}>
-            <i class="text-2xl fa-brands fa-linkedin-in mr-2 text-teal-900 hover:text-amber-500" />
+            <i class="fa-brands fa-linkedin-in mr-2 text-2xl text-teal-900 hover:text-amber-500" />
           </a>
           {teamMember.lattes && (
             <a target="_blank" href={teamMember.lattes}>
-              <i class="text-2xl fa-solid fa-graduation-cap text-teal-900 hover:text-amber-500" />
+              <i class="fa-solid fa-graduation-cap text-2xl text-teal-900 hover:text-amber-500" />
             </a>
           )}
         </div>
