@@ -78,7 +78,7 @@ const description = renderRichText(blok.description);
         <h2 class="mb-8 text-center text-xl text-teal-900">
           Produtos relacionados
         </h2>
-        <div class="mb-8 grid auto-cols-fr grid-flow-col place-items-center gap-4">
+        <div class="mb-8 grid grid-cols-1 place-items-center gap-4 md:grid-cols-3">
           {blok.related_products.map((product) => (
             <a
               class="w-10/12 rounded-md border transition-all duration-300 hover:scale-105 hover:border-teal-600"
