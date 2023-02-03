@@ -1,11 +1,11 @@
 <script>
   import { Swiper, SwiperSlide } from "swiper/svelte";
-  export let foxesImg = "/src/images/partners/foxes.webp";
-  export let bioventImg = "/src/images/partners/biovent.webp";
-  export let ecomolImg = "/src/images/partners/ecomol.webp";
-  export let unicampImg = "/src/images/partners/unicamp.webp";
-  export let unespImg = "/src/images/partners/unesp.webp";
-  export let lgeImg = "src/images/partners/lge.webp";
+  import foxesImg from "../images/partners/foxes.webp";
+  import bioventImg from "../images/partners/biovent.webp";
+  import ecomolImg from "../images/partners/ecomol.webp";
+  import unicampImg from "../images/partners/unicamp.webp";
+  import unespImg from "../images/partners/unesp.webp";
+  import lgeImg from "../images/partners/lge.webp";
 
   const partners = [
     {
@@ -74,7 +74,7 @@
   {#each partners as partner}
     <SwiperSlide>
       <a href={partner.link} target="_blank" rel="noreferrer">
-        <img src={partner.logo} alt={partner.name} class="" />
+        <img src={partner.logo.src} alt={partner.name} class="" />
       </a>
     </SwiperSlide>
   {/each}
