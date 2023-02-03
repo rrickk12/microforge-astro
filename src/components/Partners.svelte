@@ -1,11 +1,11 @@
 <script>
   import { Swiper, SwiperSlide } from "swiper/svelte";
-  let foxesImg = "/src/images/partners/foxes.webp";
-  let bioventImg = "/src/images/partners/biovent.webp";
-  let ecomolImg = "/src/images/partners/ecomol.webp";
-  let unicampImg = "/src/images/partners/unicamp.webp";
-  let unespImg = "/src/images/partners/unesp.webp";
-  let lgeImg = "src/images/partners/lge.webp";
+  export let foxesImg = "/src/images/partners/foxes.webp";
+  export let bioventImg = "/src/images/partners/biovent.webp";
+  export let ecomolImg = "/src/images/partners/ecomol.webp";
+  export let unicampImg = "/src/images/partners/unicamp.webp";
+  export let unespImg = "/src/images/partners/unesp.webp";
+  export let lgeImg = "src/images/partners/lge.webp";
 
   const partners = [
     {
