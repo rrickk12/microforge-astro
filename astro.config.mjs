@@ -15,19 +15,25 @@ const env = loadEnv("", process.cwd(), "STORYBLOK");
 
 // https://astro.build/config
 
-
 // https://astro.build/config
 export default defineConfig({
-  integrations: [svelte(), tailwind(), image(), storyblok({
-    accessToken: env.STORYBLOK_TOKEN,
-    components: {
-      blogPost: "storyblok/BlogPost",
-      Product: "storyblok/Product",
-      productGroup: "storyblok/ProductGroup"
-    },
-    apiOptions: {
-      // Choose your Storyblok space region
-      region: "us"
-    }
-  }), sitemap()]
+  site: "https://www.micro-forge.com",
+  integrations: [
+    svelte(),
+    tailwind(),
+    image(),
+    storyblok({
+      accessToken: env.STORYBLOK_TOKEN,
+      components: {
+        blogPost: "storyblok/BlogPost",
+        Product: "storyblok/Product",
+        productGroup: "storyblok/ProductGroup",
+      },
+      apiOptions: {
+        // Choose your Storyblok space region
+        region: "us",
+      },
+    }),
+    sitemap(),
+  ],
 });
