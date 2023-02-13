@@ -25,6 +25,9 @@ export async function getStaticPaths() {
 const { content } = Astro.props;
 ---
 
-<Layout title={`Microforge - ${content.name}`}>
+<Layout
+  title={`${content.metatags.title}`}
+  description={`${content.metatags.description}`}
+>
   <StoryblokComponent blok={content} />
 </Layout>
