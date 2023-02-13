@@ -1,0 +1,52 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+  integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+  crossorigin="anonymous"
+  referrerPolicy="no-referrer"
+/>
+
+<div>
+  <!-- Sharingbutton Facebook -->
+  <a
+    class="bg-blue-500 px-5 py-2 text-white"
+    href={`https://facebook.com/sharer/sharer.php?u=${Astro.url}`}
+    target="_blank"
+    rel="noopener"
+    aria-label="Compartilhar no Facebook"
+  >
+    <i class="fa-brands fa-facebook-f"></i>
+  </a>
+
+  <!-- Sharingbutton E-Mail -->
+  <a
+    class="bg-slate-500 px-5 py-2 text-white"
+    href={`mailto:?subject=Veja este post do site da Microforge!&body=${Astro.url}>${Astro.url}`}
+    target="_self"
+    rel="noopener"
+    aria-label="Compartilhar por E-Mail"
+  >
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+  <!-- Sharingbutton LinkedIn -->
+  <a
+    class="bg-blue-800 px-5 py-2 text-white"
+    href={`https://www.linkedin.com/shareArticle?mini=true&url=${Astro.url}&title=Confira este post do site da Microforge!&source=${Astro.url}`}
+    target="_blank"
+    rel="noopener"
+    aria-label="Share on LinkedIn"
+  >
+    <i class="fa-brands fa-linkedin-in"></i>
+  </a>
+
+  <!-- Sharingbutton WhatsApp -->
+  <a
+    class="bg-green-500 px-5 py-2 text-white"
+    href={`whatsapp://send?text=Veja este post no site da Microforge!${Astro.url}`}
+    target="_blank"
+    rel="noopener"
+    aria-label="Share on WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+</div>
