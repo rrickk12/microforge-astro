@@ -3,9 +3,28 @@ import { storyblokEditable, renderRichText } from "@storyblok/astro";
 import AddToCartForm from "../components/AddToCartForm.svelte";
 const { blok } = Astro.props;
 const description = renderRichText(blok.description);
+
+const paths = Astro.url.pathname.split("/").filter((path) => path !== "");
 ---
 
 <article {...storyblokEditable(blok)}>
+  <nav>
+    <ul class="ml-20 flex justify-start">
+      {
+        paths.map((path, index) => (
+          <li class="mx-1">
+            <a
+              class="border-b-2 border-b-transparent text-teal-900 hover:border-b-teal-900 hover:text-teal-800"
+              href={`/${paths.slice(0, index + 1).join("/")}`}
+            >
+              {path}
+            </a>
+            {index != paths.length - 1 && <>/</>}
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
   <h1 class="pt-10 pb-5 text-center text-3xl text-teal-900">
     {blok.name}
   </h1>
