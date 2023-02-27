@@ -32,7 +32,7 @@
       imageSrc={logoSabia.src}
       imageAlt={"Logo da Linha Sabiá"}
       btnColor={"bg-amber-500"}
-      btnLink={"/produtos/linha-sabia"}
+      btnLink={"/produtos/extracao-dna-rna-magnetica"}
     />
   </SwiperSlide>
   <SwiperSlide
@@ -44,7 +44,7 @@
       imageSrc={logoMaracaja.src}
       imageAlt={"Logo da Linha Maracajá"}
       btnColor={"bg-stone-500"}
-      btnLink={"/produtos/linha-maracaja"}
+      btnLink={"/produtos/lise-rapida"}
     />
   </SwiperSlide>
   <SwiperSlide

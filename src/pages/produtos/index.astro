@@ -2,7 +2,6 @@
 import { renderRichText, useStoryblokApi } from "@storyblok/astro";
 import ProductGroupComponent from "../../components/ProductGroupComponent.astro";
 import Layout from "../../layouts/Layout.astro";
-import animalsImage from "../../images/products/productPageHead.webp";
 
 const storyblokApi = useStoryblokApi();
 const productData = await storyblokApi.get("cdn/stories", {
@@ -60,7 +59,6 @@ const sectionColors = [
   title="Microforge - Confira nossos produtos"
   description="Insumos para biomol. Kits de extração de DNA e RNA, Lise Celular, Agarose, Racks Magnéticas à pronta entrega. Preço acessível e com suporte técnico especializado"
 >
-  <img src={animalsImage.src} alt="" />
   <div class="flex flex-col items-center p-8">
     <h2 class="mb-10 text-center text-3xl font-bold text-teal-900">
       Catálogo de Produtos
@@ -74,15 +72,18 @@ const sectionColors = [
           </h3>
           <a
             class="text-center text-teal-900 hover:text-teal-800"
-            href="#linha-sabia-section">Linha Sabiá (Beads Magnéticas)</a
+            href={`${Astro.url.pathname}/extracao-dna-rna-magnetica`}
+            >Linha Sabiá (Beads Magnéticas)</a
           >
           <a
             class="text-center text-teal-900 hover:text-teal-800"
-            href="#linha-maracaja-section">Linha Maracajá (Lise Rápida)</a
+            href={`${Astro.url.pathname}/lise-rapida`}
+            >Linha Maracajá (Lise Rápida)</a
           >
           <a
             class="text-center text-teal-900 hover:text-teal-800"
-            href="#linha-saira-section">Linha Saíra (Centrifugação)</a
+            href={`${Astro.url.pathname}/extracao-dna-rna-precipitacao`}
+            >Linha Saíra (Precipitação)</a
           >
         </div>
         <div class="flex flex-col items-center gap-2">
