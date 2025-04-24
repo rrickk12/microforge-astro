@@ -1,17 +1,17 @@
 <script>
   import { Swiper, SwiperSlide } from "swiper/svelte";
-  import foxesImg from "../images/partners/foxes.webp";
+  import finepImg from "../images/partners/finep.png";
   import bioventImg from "../images/partners/biovent.webp";
   import ecomolImg from "../images/partners/ecomol.webp";
-  import unicampImg from "../images/partners/unicamp.webp";
+  import inovaImg from "../images/partners/inova.png";
   import unespImg from "../images/partners/unesp.webp";
   import lgeImg from "../images/partners/lge.webp";
 
   const partners = [
     {
-      name: "FoxES",
-      logo: foxesImg,
-      link: "https://foxeslaboratorios.com/",
+      name: "Finep",
+      logo: finepImg,
+      link: "http://www.finep.gov.br/",
     },
     {
       name: "Biovent",
@@ -19,14 +19,9 @@
       link: "https://biovent.com.br/",
     },
     {
-      name: "Ecomol",
-      logo: ecomolImg,
-      link: "https://ecomolconsultoria.com.br/",
-    },
-    {
-      name: "Unicamp",
-      logo: unicampImg,
-      link: "https://www.unicamp.br/unicamp/",
+      name: "Inova",
+      logo: inovaImg,
+      link: "https://www.inova.unicamp.br/",
     },
     {
       name: "Unesp",

@@ -1,5 +1,4 @@
 ---
-import CartFlyoutToggle from "./CartFlyoutToggle.svelte";
 import logo from "../images/logo-horizontal.webp";
 ---
 
@@ -13,64 +12,31 @@ import logo from "../images/logo-horizontal.webp";
 
 <nav
   id="header"
-  class="sticky top-0 left-0 right-0 z-40 flex flex-wrap items-center justify-evenly gap-4 bg-white p-8 transition-all duration-300 ease-in-out"
+  class="sticky top-0 left-0 right-0 z-40 flex flex-wrap items-center justify-evenly gap-4 bg-white p-2 md:p-8 transition-all duration-300 ease-in-out"
 >
   <a href="/">
     <img
-      class="h-20 transition delay-150 hover:opacity-60"
+      class="h-16 md:h-20 transition delay-150 hover:opacity-60"
       src={logo.src}
-      alt=""
+      alt="Logo"
     />
   </a>
-  <div class="flex justify-center gap-2 text-xl md:gap-5">
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/sobre">sobre</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/produtos">produtos</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/pd">p&d</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/blog">blog</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/contato">contato</a
-    >
-    <CartFlyoutToggle client:load />
+  <div class="flex justify-center gap-2 text-lg md:gap-5 md:text-xl">
+    <a class="border-b-2 border-b-transparent hover:border-b-teal-900" href="/sobre">sobre</a>
+    <a class="border-b-2 border-b-transparent hover:border-b-teal-900" href="/produtos">produtos</a>
+    <a class="border-b-2 border-b-transparent hover:border-b-teal-900" href="/pd">p&d</a>
+    <a class="border-b-2 border-b-transparent hover:border-b-teal-900" href="/contato">contato</a>
   </div>
 
-  <div class="mt-5 flex gap-2 md:mt-0">
-    <a href="https://www.facebook.com/100068091380187/" target="_blank"
-      ><i
-        class="fa-brands fa-facebook p-1 text-2xl text-teal-900 hover:opacity-80"
-      ></i>
+  <div class="mt-2 flex gap-2 md:mt-0">
+    <a href="https://www.instagram.com/micro.forge/" target="_blank">
+      <i class="fa-brands fa-instagram p-1 text-2xl text-teal-900 hover:opacity-80"></i>
     </a>
-    <a href="https://www.instagram.com/micro.forge/" target="_blank"
-      ><i
-        class="fa-brands fa-instagram p-1 text-2xl text-teal-900 hover:opacity-80"
-      ></i>
+    <a href="https://www.linkedin.com/company/microforge/" target="_blank">
+      <i class="fa-brands fa-linkedin p-1 text-2xl text-teal-900 hover:opacity-80"></i>
     </a>
-    <a href="https://www.linkedin.com/company/microforge/" target="_blank"
-      ><i
-        class="fa-brands fa-linkedin p-1 text-2xl text-teal-900 hover:opacity-80"
-      ></i>
-    </a>
-    <a href="mailto:comercial@micro-forge.com" target="_blank"
-      ><i
-        class="fa-solid fa-envelope p-1 text-2xl text-teal-900 hover:opacity-80"
-      ></i>
-    </a>
-    <a href="https://api.whatsapp.com/send?phone=5519999453544" target="_blank"
-      ><i
-        class="fa-brands fa-whatsapp p-1 text-2xl text-teal-900 hover:opacity-80"
-      ></i>
+    <a href="mailto:comercial@micro-forge.com" target="_blank">
+      <i class="fa-solid fa-envelope p-1 text-2xl text-teal-900 hover:opacity-80"></i>
     </a>
   </div>
 </nav>
@@ -97,10 +63,8 @@ import logo from "../images/logo-horizontal.webp";
   navLinks.forEach((link) => {
     link.classList.remove("text-teal-900", "border-b-teal-900");
 
-    // `slice` here to remove the first `/` in pathname
-    const currentPath = window.location.pathname.slice("1");
-
-    // `link.href` returns a whole url, such as: "https://somedomain.com/posts" and we only need the last part
+    // Remove the leading slash in pathname
+    const currentPath = window.location.pathname.slice(1);
     const hrefArray = link.href.split("/");
     const thisPath = hrefArray[hrefArray.length - 1];
 
@@ -109,11 +73,3 @@ import logo from "../images/logo-horizontal.webp";
     }
   });
 </script>
-
-<!-- how to add underline animation to link -->
-<!-- <a href="/sobre" class="group transition duration-300">
-  sobre
-  <span
-    class="block h-0.5 max-w-0 bg-teal-900 transition-all duration-500 group-hover:max-w-full"
-  ></span>
-</a> -->

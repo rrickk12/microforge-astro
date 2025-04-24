@@ -1,124 +1,17 @@
 ---
-import { renderRichText, useStoryblokApi } from "@storyblok/astro";
-import ProductGroupComponent from "../../components/ProductGroupComponent.astro";
 import Layout from "../../layouts/Layout.astro";
-
-const storyblokApi = useStoryblokApi();
-const productData = await storyblokApi.get("cdn/stories", {
-  version: import.meta.env.DEV ? "draft" : "published",
-  content_type: "Product",
-  sort_by: "created_at",
-});
-
-const productGroupData = await storyblokApi.get("cdn/stories", {
-  version: import.meta.env.DEV ? "draft" : "published",
-  content_type: "productGroup",
-  sort_by: "created_at",
-});
-
-const products = productData.data.stories.map((story) => {
-  return {
-    name: story.content.name,
-    image: story.content.image,
-    slug: story.full_slug,
-    featured: story.content.featured,
-  };
-});
-
-// Sort products by featured
-products.sort((a, b) => {
-  if (a.featured && !b.featured) {
-    return -1;
-  } else if (!a.featured && b.featured) {
-    return 1;
-  } else {
-    return 0;
-  }
-});
-//
-
-const productGroups = productGroupData.data.stories.map((story) => {
-  return {
-    title: story.content.title,
-    subtitle: story.content.subtitle,
-    slug: story.slug,
-    descriptionExcerpt: renderRichText(story.content.description).slice(0, 200),
-  };
-});
-
-const sectionColors = [
-  "bg-amber-500",
-  "bg-amber-900",
-  "bg-teal-700",
-  "bg-teal-500",
-  "bg-amber-400",
-];
 ---
 
 <Layout
-  title="Microforge - Confira nossos produtos"
-  description="Insumos para biomol. Kits de extração de DNA e RNA, Lise Celular, Agarose, Racks Magnéticas à pronta entrega. Preço acessível e com suporte técnico especializado"
+  title="Microforge - Página em Construção"
+  description="Desculpe o transtorno. Estamos atualizando nosso catálogo de produtos."
 >
-  <div class="flex flex-col items-center p-8">
-    <h2 class="mb-10 text-center text-3xl font-bold text-teal-900">
-      Catálogo de Produtos
+  <div class="flex min-h-screen flex-col items-center justify-center p-8">
+    <h2 class="mb-6 text-center text-3xl font-bold text-teal-900">
+      Página em Construção
     </h2>
-    <div class="w-3/4">
-      <hr class="mx-auto mb-10 border-teal-800" />
-      <div class="grid gap-2 md:grid-cols-3">
-        <div class="flex flex-col items-center gap-2">
-          <h3 class="text-center text-xl text-teal-900">
-            Extração de DNA e RNA
-          </h3>
-          <a
-            class="text-center text-teal-900 hover:text-teal-800"
-            href={`${Astro.url.pathname}/extracao-dna-rna-magnetica`}
-            >Linha Sabiá (Beads Magnéticas)</a
-          >
-          <a
-            class="text-center text-teal-900 hover:text-teal-800"
-            href={`${Astro.url.pathname}/lise-rapida`}
-            >Linha Maracajá (Lise Rápida)</a
-          >
-          <a
-            class="text-center text-teal-900 hover:text-teal-800"
-            href={`${Astro.url.pathname}/extracao-dna-rna-precipitacao`}
-            >Linha Saíra (Precipitação)</a
-          >
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <h3 class="text-xl text-teal-900">Acessórios</h3>
-          <a
-            class="text-teal-900 hover:text-teal-800"
-            href="#acessorios-section">Racks Magnéticas</a
-          >
-          <a
-            class="text-teal-900 hover:text-teal-800"
-            href="#acessorios-section">Plásticos</a
-          >
-        </div>
-        <div class="flex flex-col items-center gap-2">
-          <h3 class="text-xl text-teal-900">Soluções</h3>
-          <a class="text-teal-900 hover:text-teal-800" href="#solucoes-section"
-            >Soluções</a
-          >
-        </div>
-      </div>
-      <hr class="mx-auto mt-10 border-teal-800" />
-      {
-        productGroups.map((productGroup, idx) => (
-          <ProductGroupComponent
-            productGroupSlug={productGroup.slug}
-            productGroupTitle={productGroup.title}
-            products={products.filter((product) =>
-              product.slug.includes(productGroup.slug)
-            )}
-            productGroupDescriptionExcerpt={productGroup.descriptionExcerpt}
-            sectionColor={sectionColors[idx]}
-            productGroupsubTitle={productGroup.subtitle}
-          />
-        ))
-      }
-    </div>
+    <p class="text-center text-lg text-teal-800">
+      Estamos atualizando nosso catálogo de produtos para melhor atendê-lo. Em breve, novidades estarão disponíveis. Agradecemos sua compreensão
+    </p>
   </div>
 </Layout>

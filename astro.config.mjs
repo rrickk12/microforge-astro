@@ -12,6 +12,7 @@ import tailwind from "@astrojs/tailwind";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
 const env = loadEnv("", process.cwd(), "STORYBLOK");
+console.log("Loaded Storyblok Token:", env.STORYBLOK_TOKEN);
 
 // https://astro.build/config
 
@@ -31,7 +32,7 @@ export default defineConfig({
       },
       apiOptions: {
         // Choose your Storyblok space region
-        region: "us",
+        region: "us-east-1",
       },
     }),
     sitemap(),

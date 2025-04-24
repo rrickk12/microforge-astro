@@ -35,7 +35,7 @@
       btnLink={"/produtos/extracao-dna-rna-magnetica"}
     />
   </SwiperSlide>
-  <SwiperSlide
+  <!-- <SwiperSlide
     class="bg-[url('/src/images/slide3@2x.webp')] p-8 flex items-center bg-center bg-cover"
   >
     <SwiperSlideContent
@@ -46,7 +46,7 @@
       btnColor={"bg-stone-500"}
       btnLink={"/produtos/lise-rapida"}
     />
-  </SwiperSlide>
+  </SwiperSlide> -->
   <SwiperSlide
     class="bg-[url('/src/images/slide4@2x.webp')] p-8 flex items-center bg-center bg-cover"
   >

@@ -1,85 +1,113 @@
 ---
 import Motivation from "../components/Motivation.astro";
 import Layout from "../layouts/Layout.astro";
-import animalsImage from "../images/products/productPageHead.webp";
+
+// Importação do Swiper e do componente de slide (Svelte)
+import { Swiper, SwiperSlide } from "swiper/svelte";
+import SwiperSlideContent from "../components/SwiperSlideContent.svelte";
+
+// Imagens utilizadas nos slides (já são strings com a URL gerada)
+import animalsImage from "../images/products/sabia.webp";
+import faunaImage from "../images/products/maracaja.webp";
 ---
 
 <Layout
   title="Microforge - Sobre nós"
-  description="Nossa empresa surgiu da Unicamp como anseio de nossos cientistas em mudar o paradigma atual no fornecimento de insumos de biomol"
+  description="Nossa empresa surgiu da Unicamp como anseio de nossos cientistas em mudar o paradigma atual no fornecimento de insumos laboratoriais, atendendo desde centros de pesquisa até laboratórios industriais."
 >
   <main class="lg:mx-28">
     <div class="p-8">
-      <h2 class="mb-10 text-3xl font-bold text-teal-900">Nossa motivação</h2>
+      <h2 class="mb-10 text-3xl font-bold text-teal-900">Nossa Motivação</h2>
+      <p class="mb-10 text-justify">
+        Na <strong>Microforge</strong>, compreendemos a importância vital dos insumos laboratoriais para o avanço da pesquisa científica, inovação industrial e desenvolvimento de produtos tecnológicos.  
+        Sabemos que laboratórios – sejam eles acadêmicos, industriais ou corporativos – enfrentam desafios constantes, desde custos elevados até prazos longos e falta de suporte técnico especializado.  
+        Nosso objetivo é oferecer soluções que atendam não apenas pesquisadores acadêmicos, mas também <strong>laboratórios empresariais, setores de P&D e indústrias que dependem de insumos confiáveis para inovação e qualidade.</strong>
+      </p>
       <div class="mb-10 grid gap-10 md:grid-cols-2">
-        <Motivation
-          color="border-amber-800"
-          icon="fa-solid fa-dollar-sign"
-          title="Preço"
-          description="Sabe quando você está realizando um ensaio e pensa que poderia ser mais rápido se existisse um kit? Você pesquisa na internet e descobre que ele existe! Porém, não existe no Brasil. Ou até tem, mas é caro demais, e convencer seu orientador de comprá-lo seria quase impossível"
+        <Motivation 
+          color="border-amber-800" 
+          icon="fa-solid fa-dollar-sign" 
+          title="Acessibilidade financeira" 
+          description="O alto custo de insumos não pode ser um obstáculo para o desenvolvimento de novas tecnologias e descobertas. Nosso compromisso é garantir que laboratórios de pesquisa, desenvolvimento e controle de qualidade tenham acesso a produtos de alto desempenho a preços competitivos." 
         />
-        <Motivation
-          color="border-teal-900"
-          icon="fa-regular fa-clock"
-          title="Prazos longos"
-          description="Imagine aquele produto que você comprou, esperou por meses para iniciar seus experimentos e deveria chegar hoje. Mas você foi avisado, justo hoje, após planejar todo seu experimento e reservar os equipamentos no laboratório para uso, de que ele vai atrasar por no mínimo mais um mês."
+        <Motivation 
+          color="border-teal-900" 
+          icon="fa-regular fa-clock" 
+          title="Redução de prazos" 
+          description="Tempo é um fator crítico para qualquer setor de inovação. Trabalhamos para encurtar os prazos de entrega, garantindo que tanto pesquisadores quanto indústrias tenham os insumos no momento certo para evitar interrupções e atrasos." 
         />
-        <Motivation
-          color="border-green-900"
-          icon="fa-solid fa-truck"
-          title="Dependência de importação"
-          description="Você entra no site do fabricante e depois de algum tempo procurando, finalmente encontra o produto que tanto precisa. Ao clicar para saber o preço, que precisa pedir um orçamento e é necessário deixar um caminhão de dados pessoais apenas para ter essa informação. Algumas semanas depois, você finalmente recebe o tão esperado orçamento. Porém o prazo de entrega é longo demais e o preço caro devido à necessidade de importação"
+        <Motivation 
+          color="border-green-900" 
+          icon="fa-solid fa-truck" 
+          title="Independência da importação" 
+          description="A dependência de fornecedores estrangeiros é um desafio para laboratórios de diversos segmentos. Nosso propósito é fortalecer a produção nacional e oferecer soluções competitivas, reduzindo a necessidade de importação e promovendo autonomia no fornecimento de insumos essenciais." 
         />
-        <Motivation
-          color="border-blue-900"
-          icon="fa-solid fa-comments"
-          title="Falta de apoio a projetos"
-          description="Escrevendo seu projeto de pesquisa, você descreve minuciosamente os detalhes metodológicos, alguns deles até fora da sua área original de atuação, mas você entende benefícios que virão da sua proposta utilizando esses novos recursos. A agência de fomento exige que você entregue os preços dos insumos a utilizar, mas você nem faz ideia de quais são ainda, ou de qual marca irá comprar. Seria muito mais fácil se alguém pudesse te auxiliar nisso, né?"
-        />
-        <Motivation
-          color="border-blue-900"
-          icon="fa-solid fa-graduation-cap"
-          title="Falta de conhecimento da área"
-          description="Aquele vendedor chato está te ligando pela milésima vez. Você resolve atender para dizer mais uma vez que não está precisando de nada. Mas dessa vez o produto sendo vendido até que é interessante. Você aceita a amostra teste, mas quando chega, o produto não tem o menor sentido com o propósito que o vendedor lhe disse."
+        <Motivation 
+          color="border-blue-900" 
+          icon="fa-solid fa-comments" 
+          title="Suporte especializado" 
+          description="Seja um pesquisador acadêmico ou um profissional da indústria, contar com um suporte técnico confiável é essencial. Nossa equipe está preparada para auxiliar na escolha de insumos adequados, garantindo que você tenha os produtos certos para seus processos e experimentos." 
+        />      
+        <Motivation 
+          color="border-blue-900" 
+          icon="fa-solid fa-industry" 
+          title="Atendimento a laboratórios empresariais" 
+          description="Além da pesquisa acadêmica, atendemos laboratórios industriais, farmacêuticos, de biotecnologia e controle de qualidade, garantindo soluções que se encaixam nas exigências regulatórias e operacionais de diferentes setores." 
         />
       </div>
+      
       <section>
-        <h2 class="mb-10 text-3xl font-bold text-teal-900">
-          Se você se identificou com algum desses relatos, você precisa conhecer
-          a Microforge!
-        </h2>
-        <p class="mb-10 text-justify">
-          Somos uma empresa nacional, criada por doutorandos e ex-alunos da
-          UNICAMP, e que repetidas vezes nos vimos em situações parecidas com
-          essas. Queremos fazer diferente, e para isso devemos mudar a forma
-          como atualmente se faz a venda dos insumos de laboratório. Queremos
-          resgatar nos pesquisadores cansados e conformados com a “política” da
-          ciência a beleza da experimentação. Queremos tornar a ciência
-          prazerosa para quem faz, encantadora para quem vive e biorreverente.
-          Queremos transparência, parceria e aprender com nossos cientistas,
-          para cada vez mais entregar produtos que realmente façam a diferença
-          no dia a dia para que você consiga focar no que realmente importa nos
-          seus experimentos: <strong>chegar à verdade</strong>.
-        </p>
-      </section>
-      <section>
-        <h2 class="mb-10 text-3xl font-bold text-teal-900">
-          Por que as linhas tem nomes de animais?
-        </h2>
-        <img
-          src={animalsImage.src}
-          alt="Animais da Microforge"
-          class="mx-auto mb-5 lg:w-1/2"
-        />
+        <h2 class="mb-10 text-3xl font-bold text-teal-900">Nosso Compromisso</h2>
         <p class="text-justify">
-          A ciência no nosso Brasil é de grande qualidade. Porém muitas vezes
-          ignoramos esse fato, ou damos maior valor ao que é estrangeiro e
-          importado, seja produtos, pesquisa ou soluções. Queremos resgatar o
-          encanto pelo nacional, e seguindo nosso propósito biorreverente,
-          batizamos nossas linhas de produtos principais em homenagem aos
-          animais da nossa fauna!
+          Na <strong>Microforge</strong>, entendemos que cada laboratório tem suas próprias necessidades e desafios, seja na pesquisa acadêmica, no desenvolvimento de novos produtos ou no controle de qualidade industrial.  
+          Nosso compromisso é oferecer <strong>transparência, confiabilidade e inovação</strong>, garantindo que cientistas, engenheiros e analistas tenham acesso a insumos de qualidade, com informações claras sobre prazos, custos e especificações técnicas.
+        </p>
+        <p class="text-justify">
+          Buscamos <strong>fortalecer a produção nacional</strong>, reduzindo a dependência de importação e promovendo autonomia para empresas e instituições de pesquisa. Nosso modelo de fornecimento prioriza eficiência e previsibilidade, assegurando que laboratórios tenham segurança e estabilidade no abastecimento de seus insumos.
+        </p>
+        <p class="text-justify mb-6">
+          Ao lado de nossos parceiros e clientes, trabalhamos para tornar o setor mais acessível, inovador e competitivo. Seja você um pesquisador acadêmico, um gestor de laboratório ou um profissional da indústria, a <strong>Microforge</strong> está aqui para apoiar suas necessidades e contribuir para um futuro científico e tecnológico mais robusto.
         </p>
       </section>
+
+      <section>
+        <h2 class="mb-10 text-3xl font-bold text-teal-900">Por que as linhas têm nomes de animais?</h2>
+        <div class="mb-10 w-full">
+          <Swiper
+            options={{
+              spaceBetween: 10,
+              slidesPerView: 2, // Força dois slides lado a lado
+              pagination: { clickable: true }
+            }}
+            class="mb-5 w-full"
+          >
+            <!-- @ts-ignore -->
+            <SwiperSlide>
+              <SwiperSlideContent
+                title="Valorizamos a inovação nacional"
+                description="A ciência e a inovação no Brasil têm enorme potencial, mas insumos nacionais são muitas vezes subestimados. Nossa missão é valorizar o que é produzido aqui, reforçando nossa aposta na sustentabilidade e inovação."
+                imageSrc={animalsImage.src}
+                imageAlt="Representação da fauna brasileira"
+                btnColor="bg-amber-500"
+                btnLink="/produtos"
+              />
+            </SwiperSlide>
+            <!-- @ts-ignore -->
+            <SwiperSlide>
+              <SwiperSlideContent
+                title="Inspirados na biodiversidade"
+                description="Batizamos nossas linhas em homenagem à fauna brasileira para celebrar a riqueza natural do nosso país e reafirmar nosso compromisso com a pesquisa, a indústria e o meio ambiente."
+                imageSrc={faunaImage.src}
+                imageAlt="Imagem representando a biodiversidade brasileira"
+                btnColor="bg-green-500"
+                btnLink="/sobre-nos"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </section>
+      
+      
     </div>
   </main>
 </Layout>

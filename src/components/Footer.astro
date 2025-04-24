@@ -1,4 +1,5 @@
 ---
+const year = new Date().getFullYear();
 import MailingForm from "./MailingForm.svelte";
 ---
 
@@ -11,82 +12,70 @@ import MailingForm from "./MailingForm.svelte";
 />
 
 <div
-  class="lg:pl-auto mt-auto grid gap-3 bg-teal-900 py-8 text-white md:grid-cols-2 md:pl-20"
+  style="box-shadow: inset 0 .75em .563em -.55em rgba(0,0,0,.17);"
+  class="mt-auto grid gap-8 bg-teal-900 py-8 text-white md:grid-cols-2 md:pl-20"
 >
-  <div class="mx-auto flex flex-col items-start gap-10">
-    <div class="flex items-center gap-4">
-      <i class="fa-sharp fa-solid fa-location-dot rounded-full bg-teal-500 p-2"
-      ></i>
-      <p>
-        Av Prefeito José Lozano Araújo 1136B
-        <br />Jardim Ypê, Paulínia, Sp, CEP 13140-558
-      </p>
+  <!-- Left Column: Contact Information -->
+  <div class="mx-auto flex flex-col gap-8">
+    <div class="flex flex-col gap-6">
+      <div class="flex items-center gap-4">
+        <i class="fa-sharp fa-solid fa-location-dot rounded-full bg-teal-500 p-2"></i>
+        <p>
+          Av Prefeito José Lozano Araújo 1136- B<br />
+          Jardim Ypê, Paulínia - SP, CEP 13140-558
+        </p>
+      </div>
+      <div class="flex items-center gap-4">
+        <i class="fa-brands fa-whatsapp rounded-full bg-teal-500 p-2"></i>
+        <p>(19) 99945-3544</p>
+      </div>
+      <div class="flex gap-2">
+        <a href="https://www.instagram.com/micro.forge/" target="_blank">
+          <i class="fa-brands fa-instagram rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/microforge/" target="_blank">
+          <i class="fa-brands fa-linkedin rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"></i>
+        </a>
+        <a href="mailto:comercial@micro-forge.com" target="_blank">
+          <i class="fa-solid fa-envelope rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"></i>
+        </a>
+      </div>
     </div>
-    <div class="flex items-center gap-4">
-      <i class="fa-brands fa-whatsapp rounded-full bg-teal-500 p-2"></i>
-      <p>(19) 99945-3544</p>
-    </div>
-    <div class="flex items-center gap-4">
-      <i class="fa-solid fa-phone rounded-full bg-teal-500 p-2"></i>
-      <p>(19) 3844-3051</p>
-    </div>
-    <div class="mt-5 flex gap-2 md:mt-0">
-      <a href="https://www.facebook.com/100068091380187/" target="_blank"
-        ><i
-          class="fa-brands fa-facebook rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"
-        ></i>
-      </a>
-      <a href="https://www.instagram.com/micro.forge/" target="_blank"
-        ><i
-          class="fa-brands fa-instagram rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"
-        ></i>
-      </a>
-      <a href="https://www.linkedin.com/company/microforge/" target="_blank"
-        ><i
-          class="fa-brands fa-linkedin rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"
-        ></i>
-      </a>
-      <a href="mailto:comercial@micro-forge.com" target="_blank"
-        ><i
-          class="fa-solid fa-envelope rounded-full bg-teal-700 p-2 text-2xl text-white hover:opacity-80"
-        ></i>
-      </a>
-    </div>
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1192.6309798910177!2d-47.1564439403725!3d-22.78109793525346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8bf1b5d51237f%3A0xf8e221e5543ac1d!2sMicro%20Forge%20Ind%C3%BAstria%20e%20Com%C3%A9rcio%20de%20Reagentes%20Ltda!5e0!3m2!1sen!2sbr!4v1672754099549!5m2!1sen!2sbr"
-      class="mx-auto border-none"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
-  <div class="mt-5 ml-10 flex flex-col gap-2 md:mt-0">
-    <h2 class="text-lg">Páginas</h2>
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/sobre">sobre</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/produtos">produtos</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/pd">p&d</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/blog">blog</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/contato">contato</a
-    >
-    <a
-      class="border-b-2 border-b-transparent hover:border-b-teal-900"
-      href="/politica">politica</a
-    >
-    <div class="w-3/4 lg:w-1/2">
-      <MailingForm client:visible />
+
+  <!-- Right Column: Navigation, Construction Message & Google Map -->
+  <div class="mx-auto flex flex-col gap-8">
+    <!-- Navigation and Construction Message -->
+    <div class="flex flex-col gap-4">
+      <nav class="flex flex-col gap-2">
+        <a class="hover:underline" href="/sobre">sobre</a>
+        <a class="hover:underline" href="/produtos">produtos</a>
+        <a class="hover:underline" href="/pd">p&d</a>
+        <a class="hover:underline" href="/contato">contato</a>
+      </nav>
     </div>
+    <!-- Google Map -->
+    <div>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1192.6309798910177!2d-47.1564439403725!3d-22.78109793525346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8bf1b5d51237f%3A0xf8e221e5543ac1d!2sMicro%20Forge%20Ind%C3%BAstria%20e%20Com%C3%A9rcio%20de%20Reagentes%20Ltda!5e0!3m2!1sen!2sbr!4v1672754099549!5m2!1sen!2sbr"
+        class="w-full border-none"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </div>
+
+</div>
+
+<div
+  class="mt-auto grid gap-8 bg-teal-900 py-8 text-white md:grid-cols-1 md:pl-20"
+>
+  <!-- Separator Line (90% width, centered) -->
+  <hr class="flex flex-col gap-1 w-[90%] mx-auto border-t border-white opacity-50 my-4" />
+
+  <!-- Footer Bottom -->
+  <div class="flex flex-col gap-1 bg-teal-900 py-4 text-center text-white text-sm">
+    &copy; {year} Powered by Interface
   </div>
 </div>
